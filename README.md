@@ -74,7 +74,7 @@ php vendor/bin/pint
 - Never commit `.env` or credentials; use `.env.example` for placeholders
 - Enable GitHub secret scanning and rotate any leaked keys immediately
 
-## Screenshots (placeholders)
+## Screenshots 
 
 - Promoter stats with “Active (Queued)” banner
 - Admin “Promoted Tasks” with queued badge
@@ -84,3 +84,9 @@ php vendor/bin/pint
 ## License
 
 MIT
+
+
+## Contact  Email
+
+ibrahim@iaadata.top
+
