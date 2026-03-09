@@ -1,4 +1,4 @@
-# ViraGrowth — Policy‑Driven Promotion Task Platform
+# ViralGrowth — Policy‑Driven Promotion Task Platform
 
 [![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
 [![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white)](https://www.php.net/)
