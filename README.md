@@ -80,7 +80,8 @@ php vendor/bin/pint
 - Admin “Promoted Tasks” with queued badge
 - Wallet/Transactions view
 - Matrix earnings and hold status
-
+<img width="1929" height="2040" alt="vg2" src="https://github.com/user-attachments/assets/7b314e7a-0232-481a-9da0-1c25deafd33f" />
+<img width="1013" height="757" alt="vg1" src="https://github.com/user-attachments/assets/26e2607f-4271-4cff-9975-e49a1fa3ae28" />
 ## License
 
 MIT
