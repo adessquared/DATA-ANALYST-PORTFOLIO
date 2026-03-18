@@ -29,6 +29,10 @@
 
 The system is designed for single or multi-branch lab setups and accommodates international locale and RTL layout requirements. It serves five distinct user roles: lab admins, clinicians, referring doctors, patients, and finance teams — each with tailored views, permissions, and communication channels.
 
+| | |
+|:---:|:---:|
+| ![LabProject platform overview](https://iaadata.top/daport/Lab-Projec1.png) | ![LabProject Patient dashboard view](https://iaadata.top/daport/Lab-Projec2.png) |
+
 ---
 
 ## 2. My Role & Contributions
@@ -118,6 +122,8 @@ Each visualization below addresses a specific operational or financial decision 
 
 **Business impact:** Faster identification of branch-level underperformance and capacity gaps.
 
+![Smart Insight Engine ( Ai Analysing Dr Prescription for Patient Lab Report Interpretaion for Easy Understanding ](https://iaadata.top/daport/Lab-Projec3.png)
+
 ```
 Branch A  ██████████████████░░░░  180 tests
 Branch B  ████████████████████░░  200 tests
@@ -138,6 +144,8 @@ Branch D  ██████████████████████  22
 
 **Business impact:** Reduced time to identify high-risk billing groups; improved cash flow visibility.
 
+![Invoice status breakdown or Smart Insight Usage Or Statistic ](https://iaadata.top/daport/Lab-Projec4.png)
+
 ```
 Group A  [████████████████████ Paid 72%][████ Partial 18%][██ Unpaid 10%]
 Group B  [████████████ Paid 44%][█████████ Partial 36%][█████ Unpaid 20%]
@@ -157,6 +165,8 @@ Group C  [█████ Paid 20%][███████ Partial 28%][███
 
 **Business impact:** Early detection of result bottlenecks; supports SLA reporting to hospital partners.
 
+![ Booking Dr Appointment ](https://iaadata.top/daport/Lab-Projec5.png)
+
 ```
   On-time release:  74%  ●●●●●●●●●●●●●●●●●●●●●●○○○○○○
   Delayed:          26%  ●●●●●●●○○○○○○○○○○○○○○○○○○○○○
@@ -174,6 +184,8 @@ Group C  [█████ Paid 20%][███████ Partial 28%][███
 **Design decision:** A solid line (actual) paired with a dashed line (baseline) was used rather than two solid lines — making the comparison immediately scannable without a legend lookup. The Appointments palette (blue) distinguishes this from clinical and financial dashboards.
 
 **Business impact:** Earlier identification of scheduling issues, reducing the impact of last-minute cancellations on resource utilization.
+
+![Lab Admin Dashboard ](https://iaadata.top/daport/Lab-Projec6.png)
 
 ```
 Actual      ─────────────────────────────────────
@@ -249,9 +261,10 @@ Week 1   Week 2   Week 3   Week 4   Week 5   Week 6
 
 ---
 
-
 ## License
 
 This project is proprietary. All rights reserved.
 
+---
 
+*README · LabProject · Data Analyst Portfolio*
