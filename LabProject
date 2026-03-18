@@ -13,9 +13,8 @@
 <br />
 
 <!-- PROJECT HERO IMAGE -->
-<p align="center">
-  <img src="https://iaadata.top/daport/Lab-Projec1.png" alt="LabProject Hero" width="100%" style="border-radius:10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" />
-</p>
+<img width="1929" height="2040" alt="vg2" src="https://iaadata.top/daport/Lab-Projec1.png" />
+
 
 ---
 
@@ -28,11 +27,12 @@
   The platform serves five distinct user personas, providing each with mission-critical tools: <b>Lab Administrators</b> (Ops Monitoring), <b>Clinicians</b> (Result Verification), <b>Referring Doctors</b> (Patient Tracking), <b>Patients</b> (Portal Access), and <b>Finance Teams</b> (Revenue Management).
 </p>
 
-<p align="center">
-  <img src="https://iaadata.top/daport/Lab-Projec2.png" alt="Patient Dashboard View" width="90%" style="border-radius:10px;" />
-  <br />
+<p>  
   <i>Fig 1: Patient-facing Results Portal & Health Dashboard</i>
+<img width="1929" height="2040" alt="vg2" src="https://iaadata.top/daport/Lab-Projec2.png" />
 </p>
+
+
 
 ---
 
@@ -73,28 +73,28 @@
 <h3>5.1 Multi-Branch Throughput (Operations)</h3>
 <p>Administrators use this teal-themed grouped bar chart to compare branch performance and allocate staff resources in real-time. The teal palette is reserved exclusively for Operational modules.</p>
 <p align="center">
-  <img src="https://iaadata.top/daport/Lab-Projec3.png" alt="Operational Analytics" width="90%" />
+  <img width="1929" height="2040" alt="vg2" src="https://iaadata.top/daport/Lab-Projec3.png" />
 </p>
 
 <!-- VISUALIZATION 2 -->
 <h3>5.2 Financial Status & Cash Flow Visibility</h3>
 <p>This visualization uses semantic mapping (Green/Amber/Red) to prioritize collections. Finance teams can instantly identify high-risk overdue accounts across different insurance and patient groups.</p>
 <p align="center">
-  <img src="https://iaadata.top/daport/Lab-Projec4.png" alt="Financial Tracking" width="90%" />
+  <img width="1929" height="2040" alt="vg2" src="https://iaadata.top/daport/Lab-Projec4.png" />
 </p>
 
 <!-- VISUALIZATION 3 -->
 <h3>5.3 SLA Compliance (Result Release Rate)</h3>
 <p>Critical for hospital partnerships, this Donut chart monitors the Result Release Rate. It tracks the percentage of reports released within the guaranteed clinical window.</p>
 <p align="center">
-  <img src="https://iaadata.top/daport/Lab-Projec5.png" alt="SLA Tracking" width="90%" />
+<img width="1929" height="2040" alt="vg2" src="https://iaadata.top/daport/Lab-Projec5.png" />
 </p>
 
 <!-- VISUALIZATION 4 -->
 <h3>5.4 System-Wide Admin Governance</h3>
 <p>The Master Admin Dashboard provides a macro view of the entire laboratory ecosystem, including branch growth, total test volume, and active clinical verification queues.</p>
 <p align="center">
-  <img src="https://iaadata.top/daport/Lab-Projec6.png" alt="Admin Dashboard" width="90%" />
+ <img width="1929" height="2040" alt="vg2" src="https://iaadata.top/daport/Lab-Projec6.png" />
 </p>
 
 ---
