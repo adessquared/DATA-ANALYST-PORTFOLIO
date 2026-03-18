@@ -1,5 +1,12 @@
 # 💫 About Me:
-Ibrahim A. Adeosun<br>Data Analyst | Business Intelligence | Data Visualization | Ai Prompt & Automation <br><br>Transforming raw data into actionable insights.<br>Data Analyst skilled in transforming complex data into strategic business insights. Proficient in Python, R, SQL, Excel, Power BI, and Tableau. I specialize in the full analytics lifecycle—building interactive dashboards, merging disparate datasets, and performing statistical analysis to identify key opportunities. I combine technical execution with critical thinking to deliver clear, actionable insights that drive informed decision-making.
+Ibrahim A. Adeosun  
+Data Analyst | Business Intelligence | Data Visualization | AI & Automation  
+
+Transforming raw data into actionable insights.  
+
+I am a Data Analyst skilled in transforming complex data into strategic business insights. Proficient in Python, R, SQL, Excel, Power BI, and Tableau, I specialize in the full analytics lifecycle—building interactive dashboards, merging disparate datasets, and performing statistical analysis to identify key opportunities.  I combine technical execution with critical thinking to deliver clear, actionable insights that drive informed decision-making.  
+
+I also bring a human-centered perspective from my background in caregiving, strengthening my ability to work with real-world data and uncover meaningful insights.
 
 ## 🌐 Socials:
 [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/adessquared) [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/adessquared) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/adessquared) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/adessquared) [![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?logo=TikTok&logoColor=white)](https://tiktok.com/@adessquared) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/adessquared) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@adessquared) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:adessquared@gmail.com) 
