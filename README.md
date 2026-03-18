@@ -1,93 +1,52 @@
-# ViralGrowth — Policy‑Driven Promotion Task Platform
+### Policy‑Driven Task Distribution for Promotions (Laravel 11)
 
-[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
-[![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white)](https://www.php.net/)
-![Stack](https://img.shields.io/badge/Stack-Sanctum%20%7C%20Vite%20%7C%20Tailwind%20%7C%20Alpine-blue)
-[![CI](https://github.com/adessquared/vg-live-task-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/adessquared/vg-live-task-platform/actions)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+- Repo: [ViralGrowth Live — Promotion Task Platform]
+- Stack: Laravel 11 (PHP 8.2), Sanctum, Vite + Tailwind + Alpine, Redis (Predis)
+- Role: Data Analyst & self‑taught engineer — designed fairness policies, implemented assignment algorithms, and instrumented observability.
 
-Policy‑driven task distribution engine for user‑submitted promotions with 6‑hour scheduling windows, duplicate prevention via URL normalization, compliance‑aware approvals, wallets and payouts, and admin/operator tooling.
+**Problem**
+- Inconsistent distribution across users and duplicate promotions reduced task quality and throughput. Owners could distribute while carrying backlogs, and recipients with poor completion rates consumed capacity.
 
-## Highlights
+**Intervention**
+- 6‑hour window model (00:00/06:00/12:00/18:00) with policy‑driven gates and preferences:
+  - Owner gating: exclude promotions from owners carrying current‑window pending assignments
+  - Recipient preference: prioritize users with zero current‑window pending; among equals, higher monthly completion rates
+  - URL normalization: canonicalize cross‑platform links to block duplicates
+  - Compliance‑aware approvals: expiry for unsubmitted assignments, auto‑approval threshold for high performers
+  - Transparent UI: “Active (Queued)” for promoters; “Queued: owner has pending” in admin lists
 
-- 6‑hour window assignment (00:00, 06:00, 12:00, 18:00)
-- Owner gating (configurable): block distribution if promoter has current‑window pending assignments
-- Recipient preference (configurable): prefer users with zero current‑window pending, then higher monthly completion rates
-- Duplicate prevention: normalized URL canonicalization across major platforms (YouTube/Instagram/TikTok/Twitter/LinkedIn)
-- Compliance & approvals: expiry for unsubmitted assignments; auto‑approval threshold; manual review flow
-- Wallets & payouts: earnings credited on approvals; Binance Pay and NOWPayments integrations
-- Genealogy matrix: nested‑set structure with spillover and deep‑level earnings distribution
-- Admin UI: review promoted tasks, batch approve/disapprove, inspect user tasks and transactions
-- Observability: structured logs for gating and normalized exclusions; UI chips for Active/Inactive/Queued
+**Impact (sample metrics placeholders)**
+- +X% assignments completed per window after preference ordering
+- −Y% duplicate submissions detected via normalized URLs
+- −Z% support tickets after introducing queued status messaging
+- +W% auto‑approved submissions among compliant users
 
-## Architecture
+**Data Signals**
+- Current‑window pending = count(status=assigned, assigned_window_start=windowEdge)
+- Monthly completion rate = (completed / assigned) * 100 per user
+- Normalized target URL = canonicalized identity for cross‑platform duplicates
 
-- Backend: Laravel 11 (PHP 8.2), Sanctum auth, Predis/Redis
-- Frontend: Vite + Tailwind CSS + Alpine.js
-- Jobs/Schedule: cron entry triggers 6‑hour generation and housekeeping
-- Core modules:
-  - TaskService: selection rules, gating, per‑window caps, normalized exclusion
-  - WalletService: balances and transactions
-  - Matrix module: genealogy and earnings distribution
-  - Payments: Binance Pay & NOWPayments via webhooks
+**Algorithm Summary**
+- Selection excludes: historical tasks (completed/expired/rejected), self‑owned, normalized duplicates
+- Apply caps: per‑task daily_limit split by 6‑hour windows
+- Owner gating → recipient preference ordering → assign until caps or per‑user quotas met
 
-## Policy Controls
+**Financials & Integrations**
+- Earnings credited on approvals; monthly payouts to wallets
+- Payment integrations with Binance Pay & NOWPayments; webhook‑driven ledger entries
+- Genealogy matrix (nested‑set) for deep‑level distributions with spillover rules
 
-- `tasks.require_owner_clean_pending` (bool): enable owner gating
-- `tasks.prefer_completers` (bool): enable recipient preference ordering
-- `tasks.pending_scope` (string): `window` | `day` | `month` (default `window`)
-- `tasks.normalized_exclusion_enabled` (bool): enable normalized link duplicate exclusion
-- `tasks.expiry_days` (int): assignment expiry for unsubmitted tasks (default 30)
-- Auto‑approval threshold (percentage): see `tasks.auto_approval_threshold`
+**Observability**
+- Structured logs for owner‑gating and normalized exclusions
+- UI chips for Active/Inactive/Queued to align expectations and reduce ambiguity
 
-## Quickstart
+**What I Contributed**
+- Designed fairness policy and preference ordering criteria grounded in operational signals
+- Implemented gating and ordering behind config flags for safe rollout
+- Added normalized URL duplicate checks and compliance‑aware approvals
+- Instrumented logs and status messaging for explainability
 
-```bash
-# Backend
-composer install
-cp .env.example .env
-php artisan key:generate
-# configure DB credentials in .env
-php artisan migrate
-
-# Frontend
-npm ci
-npm run build   # or: npm run dev
-
-# Run
-php artisan serve
-# for schedulers: set up cron to hit /cron/run (or 'php artisan schedule:run')
-```
-
-## Tests & Quality
-
-```bash
-# Run tests
-php vendor/bin/phpunit --testdox
-
-# Lint (style)
-php vendor/bin/pint
-```
-
-## Security & Secrets
-
-- Never commit `.env` or credentials; use `.env.example` for placeholders
-- Enable GitHub secret scanning and rotate any leaked keys immediately
-
-## Screenshots 
-
-- Promoter stats with “Active (Queued)” banner
-- Admin “Promoted Tasks” with queued badge
-- Wallet/Transactions view
-- Matrix earnings and hold status
-<img width="1929" height="2040" alt="vg2" src="https://github.com/user-attachments/assets/7b314e7a-0232-481a-9da0-1c25deafd33f" />
-<img width="1013" height="757" alt="vg1" src="https://github.com/user-attachments/assets/26e2607f-4271-4cff-9975-e49a1fa3ae28" />
-## License
-
-MIT
-
-
-## Contact  Email
-
-ibrahim@iaadata.top
-
+**Future Work**
+- Experiment with gating thresholds (e.g., allow distribution when pending ≤ 1)
+- Dashboard KPIs: queue rate, completion latency, duplicate rate, approval latency
+- Aggregated precomputations to further reduce query costs in large cohorts
