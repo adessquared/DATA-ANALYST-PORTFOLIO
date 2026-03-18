@@ -1,52 +1,26 @@
-### Policy‑Driven Task Distribution for Promotions (Laravel 11)
+# 💫 About Me:
+Ibrahim A. Adeosun<br>Data Analyst | Business Intelligence | Data Visualization | Ai Prompt & Automation <br><br>Transforming raw data into actionable insights.<br>Data Analyst skilled in transforming complex data into strategic business insights. Proficient in Python, R, SQL, Excel, Power BI, and Tableau. I specialize in the full analytics lifecycle—building interactive dashboards, merging disparate datasets, and performing statistical analysis to identify key opportunities. I combine technical execution with critical thinking to deliver clear, actionable insights that drive informed decision-making.
 
-- Repo: [ViralGrowth Live — Promotion Task Platform]
-- Stack: Laravel 11 (PHP 8.2), Sanctum, Vite + Tailwind + Alpine, Redis (Predis)
-- Role: Data Analyst & self‑taught engineer — designed fairness policies, implemented assignment algorithms, and instrumented observability.
+## 🌐 Socials:
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/adessquared) [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/adessquared) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/adessquared) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/adessquared) [![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?logo=TikTok&logoColor=white)](https://tiktok.com/@adessquared) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/adessquared) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@adessquared) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:adessquared@gmail.com) 
 
-**Problem**
-- Inconsistent distribution across users and duplicate promotions reduced task quality and throughput. Owners could distribute while carrying backlogs, and recipients with poor completion rates consumed capacity.
+# 💻 Tech Stack:
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![Solidity](https://img.shields.io/badge/Solidity-%23363636.svg?style=for-the-badge&logo=solidity&logoColor=white) ![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white) ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white) ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white) ![Apache Ant](https://img.shields.io/badge/Apache%20Ant-A81C7D?style=for-the-badge&logo=Apache%20Ant&logoColor=white) ![Apache Flink](https://img.shields.io/badge/Apache%20Flink-E6526F?style=for-the-badge&logo=Apache%20Flink&logoColor=white) ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white) ![Apache Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=for-the-badge&logo=apache-tomcat&logoColor=black) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![Adobe Acrobat Reader](https://img.shields.io/badge/Adobe%20Acrobat%20Reader-EC1C24.svg?style=for-the-badge&logo=Adobe%20Acrobat%20Reader&logoColor=white) ![Adobe](https://img.shields.io/badge/adobe-%23FF0000.svg?style=for-the-badge&logo=adobe&logoColor=white) ![Adobe Dreamweaver](https://img.shields.io/badge/Adobe%20Dreamweaver-FF61F6.svg?style=for-the-badge&logo=Adobe%20Dreamweaver&logoColor=white) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=adessquared&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://nirzak-streak-stats.vercel.app/?user=adessquared&theme=dark&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=adessquared&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
-**Intervention**
-- 6‑hour window model (00:00/06:00/12:00/18:00) with policy‑driven gates and preferences:
-  - Owner gating: exclude promotions from owners carrying current‑window pending assignments
-  - Recipient preference: prioritize users with zero current‑window pending; among equals, higher monthly completion rates
-  - URL normalization: canonicalize cross‑platform links to block duplicates
-  - Compliance‑aware approvals: expiry for unsubmitted assignments, auto‑approval threshold for high performers
-  - Transparent UI: “Active (Queued)” for promoters; “Queued: owner has pending” in admin lists
+## 🏆 GitHub Trophies
+![](https://github-profile-trophy.vercel.app/?username=adessquared&theme=radical&no-frame=false&no-bg=true&margin-w=4)
 
-**Impact (sample metrics placeholders)**
-- +X% assignments completed per window after preference ordering
-- −Y% duplicate submissions detected via normalized URLs
-- −Z% support tickets after introducing queued status messaging
-- +W% auto‑approved submissions among compliant users
+### ✍️ Random Dev Quote
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-**Data Signals**
-- Current‑window pending = count(status=assigned, assigned_window_start=windowEdge)
-- Monthly completion rate = (completed / assigned) * 100 per user
-- Normalized target URL = canonicalized identity for cross‑platform duplicates
+### 🔝 Top Contributed Repo
+![](https://github-contributor-stats.vercel.app/api?username=adessquared&limit=5&theme=dark&combine_all_yearly_contributions=true)
 
-**Algorithm Summary**
-- Selection excludes: historical tasks (completed/expired/rejected), self‑owned, normalized duplicates
-- Apply caps: per‑task daily_limit split by 6‑hour windows
-- Owner gating → recipient preference ordering → assign until caps or per‑user quotas met
+---
+[![](https://visitcount.itsvg.in/api?id=adessquared&icon=0&color=0)](https://visitcount.itsvg.in)
 
-**Financials & Integrations**
-- Earnings credited on approvals; monthly payouts to wallets
-- Payment integrations with Binance Pay & NOWPayments; webhook‑driven ledger entries
-- Genealogy matrix (nested‑set) for deep‑level distributions with spillover rules
-
-**Observability**
-- Structured logs for owner‑gating and normalized exclusions
-- UI chips for Active/Inactive/Queued to align expectations and reduce ambiguity
-
-**What I Contributed**
-- Designed fairness policy and preference ordering criteria grounded in operational signals
-- Implemented gating and ordering behind config flags for safe rollout
-- Added normalized URL duplicate checks and compliance‑aware approvals
-- Instrumented logs and status messaging for explainability
-
-**Future Work**
-- Experiment with gating thresholds (e.g., allow distribution when pending ≤ 1)
-- Dashboard KPIs: queue rate, completion latency, duplicate rate, approval latency
-- Aggregated precomputations to further reduce query costs in large cohorts
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
