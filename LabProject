@@ -31,7 +31,15 @@ The system is designed for single or multi-branch lab setups and accommodates in
 
 | | |
 |:---:|:---:|
-| ![LabProject platform overview](https://iaadata.top/daport/Lab-Projec1.png) | ![LabProject Patient dashboard view](https://iaadata.top/daport/Lab-Projec2.png) |
+| ![LabProject platform overview]  
+
+<p align="center">
+  <img src="https://iaadata.top/daport/Lab-Projec1.png" alt="Platform Overview" width="90%" />
+</p>
+
+| ![LabProject Patient dashboard view] <p align="center">
+  <img src="https://iaadata.top/daport/Lab-Projec2.png" alt="Patient Dashboard" width="90%" />
+</p> |
 
 ---
 
@@ -122,7 +130,9 @@ Each visualization below addresses a specific operational or financial decision 
 
 **Business impact:** Faster identification of branch-level underperformance and capacity gaps.
 
-![Smart Insight Engine ( Ai Analysing Dr Prescription for Patient Lab Report Interpretaion for Easy Understanding ](https://iaadata.top/daport/Lab-Projec3.png)
+![Smart Insight Engine ( Ai Analysing Dr Prescription for Patient Lab Report Interpretaion for Easy Understanding ] <p align="center">
+  <img src="https://iaadata.top/daport/Lab-Projec3.png" alt="Smart Insight Engine" width="90%" />
+</p>  
 
 ```
 Branch A  ██████████████████░░░░  180 tests
@@ -144,7 +154,9 @@ Branch D  ██████████████████████  22
 
 **Business impact:** Reduced time to identify high-risk billing groups; improved cash flow visibility.
 
-![Invoice status breakdown or Smart Insight Usage Or Statistic ](https://iaadata.top/daport/Lab-Projec4.png)
+![Invoice status breakdown or Smart Insight Usage Or Statistic ]   <p align="center">
+  <img src="https://iaadata.top/daport/Lab-Projec4.png" alt="Smart Insight Usage" width="90%" />
+</p>
 
 ```
 Group A  [████████████████████ Paid 72%][████ Partial 18%][██ Unpaid 10%]
@@ -165,7 +177,9 @@ Group C  [█████ Paid 20%][███████ Partial 28%][███
 
 **Business impact:** Early detection of result bottlenecks; supports SLA reporting to hospital partners.
 
-![ Booking Dr Appointment ](https://iaadata.top/daport/Lab-Projec5.png)
+![ Booking Dr Appointment ]<p align="center">
+  <img src="https://iaadata.top/daport/Lab-Projec5.png" alt="Booking Dr Appointment " width="90%" />
+</p>
 
 ```
   On-time release:  74%  ●●●●●●●●●●●●●●●●●●●●●●○○○○○○
@@ -185,7 +199,9 @@ Group C  [█████ Paid 20%][███████ Partial 28%][███
 
 **Business impact:** Earlier identification of scheduling issues, reducing the impact of last-minute cancellations on resource utilization.
 
-![Lab Admin Dashboard ](https://iaadata.top/daport/Lab-Projec6.png)
+![Lab Admin Dashboard ]<p align="center">
+  <img src="https://iaadata.top/daport/Lab-Projec6.png" alt="Lab Admin Dashboard" width="90%" />
+</p>
 
 ```
 Actual      ─────────────────────────────────────
