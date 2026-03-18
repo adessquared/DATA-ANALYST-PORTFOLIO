@@ -1,0 +1,257 @@
+# 🧪 LabProject — Medical Lab Management System
+
+![Medical Informatics](https://img.shields.io/badge/Domain-Medical%20Informatics-0C447C?style=flat-square&labelColor=E6F1FB)
+![Data Visualization](https://img.shields.io/badge/Focus-Data%20Visualization-085041?style=flat-square&labelColor=E1F5EE)
+![AI Governance](https://img.shields.io/badge/Feature-AI%20Governance-633806?style=flat-square&labelColor=FAEEDA)
+![Chart.js](https://img.shields.io/badge/Charts-Chart.js%20%C2%B7%20Flot-27500A?style=flat-square&labelColor=EAF3DE)
+![Laravel](https://img.shields.io/badge/Stack-Laravel%20%C2%B7%20PHP-444441?style=flat-square&labelColor=F1EFE8)
+
+> End-to-end clinical operations platform covering test lifecycle management, analytics visualization governance, a compliance-first AI engine, appointment scheduling, and doctor commission workflows — serving lab admins, clinicians, referring doctors, patients, and finance teams.
+
+---
+
+## Table of Contents
+
+1. [Project Overview](#1-project-overview)
+2. [My Role & Contributions](#2-my-role--contributions)
+3. [Platform Architecture](#3-platform-architecture)
+4. [Smart AI Engine](#4-smart-ai-engine)
+5. [Data Visualization Examples](#5-data-visualization-examples)
+6. [Tech Stack & Tools](#6-tech-stack--tools)
+7. [Key Outcomes & Impact](#7-key-outcomes--impact)
+8. [Portfolio Highlights](#8-portfolio-highlights)
+
+---
+
+## 1. Project Overview
+
+**LabProject** is a production-grade, multi-branch clinical lab management system. It manages the full test lifecycle — from order intake and sample tracking through result verification and patient-facing PDF delivery — while providing operational dashboards, configurable reporting, and a white-label AI insights engine.
+
+The system is designed for single or multi-branch lab setups and accommodates international locale and RTL layout requirements. It serves five distinct user roles: lab admins, clinicians, referring doctors, patients, and finance teams — each with tailored views, permissions, and communication channels.
+
+---
+
+## 2. My Role & Contributions
+
+### 📊 Analytics Visualization Governance
+Standardized color semantics across Chart.js and Flot chart libraries. Introduced default and module-aware palettes (Reports, Accounting, Appointments) with consistent status color mapping and an admin-facing Charts configuration UI — enabling palette changes without engineering involvement.
+
+### 🤖 Smart AI Engine Operationalization
+Designed the compliance-first, white-label AI layer: provider/model governance, cost caps, failover sequencing, consent logging, and mandatory non-diagnostic disclaimers on all patient-facing outputs.
+
+### 📅 Scheduling & Resource Integrity
+Built resource-aware appointment booking with branch-level conflict prevention, setup/cleanup time buffers, ICS export endpoints (patient and admin), and optional Google/Microsoft calendar sync with read-only import support.
+
+### 💰 Doctor Commission Wallet
+Implemented configurable referral rules, credit/debit ledgers, payout request workflows, and webhook-triggered credits tied to confirmed payment events — giving referring doctors real-time financial transparency.
+
+---
+
+## 3. Platform Architecture
+
+**Core modules and their data flows:**
+
+```
+Clinical Operations
+├── Test orders → Sample lifecycle → Results entry → Verification → Release
+├── Microbiology: cultures, antibiotic panels, sensitivity mapping
+└── PDF reports: configurable layouts (fonts, margins, accent colors, headers)
+
+Scheduling
+├── Branch-specific resource booking with conflict detection
+├── Setup/cleanup buffer windows
+└── ICS export (patient & admin) + Google/Microsoft calendar sync
+
+Financials
+├── Group-based invoicing & receipts
+├── Expense categories & accounting reports (incl. doctor-centric views)
+└── Commission wallet: referral rules → ledger → payout requests → webhook credits
+
+Communications
+├── Email (SMTP): patient codes, password reset, receipts, test reports
+├── SMS (Twilio): patient codes, test notifications
+├── WhatsApp: receipt and report messaging
+└── Patient PDFs: branded headers/footers, accent colors, QR portal links
+
+Admin & Governance
+├── Theme overlay: brand CSS variables across admin/patient UIs
+├── Charts config UI: default and per-module palette overrides
+├── Reports settings: margins, fonts, colors, images, alignment
+└── Roles & permissions, Google 2FA, API key management
+```
+
+---
+
+## 4. Smart AI Engine
+
+The platform includes a white-label AI insights engine designed around compliance and clinical authority preservation.
+
+| Capability | Detail |
+|---|---|
+| **Scope** | Non-diagnostic, patient education only |
+| **Disclaimers** | Mandatory on all AI-generated patient-facing content |
+| **Consent logging** | Recorded per interaction |
+| **Provider governance** | Admin-selectable provider/model via backend UI |
+| **Cost controls** | Per-provider cost caps enforced at the infrastructure layer |
+| **Failover** | Configurable fallback sequence across providers |
+| **Report analysis** | AI summaries and trend insights on external and internal lab reports |
+| **Clinical authority** | AI augments, never overrides, clinician-verified results |
+
+> **Design principle:** Provider switching is backend-only. Patient-facing interfaces are fully white-label with no AI branding exposed.
+
+---
+
+## 5. Data Visualization Examples
+
+Each visualization below addresses a specific operational or financial decision context within the platform.
+
+---
+
+### 5.1 Monthly Test Volume by Branch
+**Chart type:** Grouped bar chart
+**Module palette:** Operations (teal)
+**Library:** Chart.js
+
+**Context:** Lab administrators need to compare test throughput across branches to allocate staff and resources effectively. This chart lives on the main operations dashboard and updates in real time.
+
+**Design decision:** The module-aware teal palette was chosen to distinguish operations data from accounting (blue) and appointment (amber) data — preventing cross-module visual confusion when multiple charts appear on the same screen.
+
+**Business impact:** Faster identification of branch-level underperformance and capacity gaps.
+
+```
+Branch A  ██████████████████░░░░  180 tests
+Branch B  ████████████████████░░  200 tests
+Branch C  ████████████░░░░░░░░░░  120 tests
+Branch D  ██████████████████████  220 tests
+```
+
+---
+
+### 5.2 Invoice Status Breakdown
+**Chart type:** Stacked horizontal bar chart
+**Status mapping:** Green (paid) / Amber (partial) / Red (unpaid)
+**Library:** Chart.js
+
+**Context:** Finance teams need to prioritize collections activity across patient groups. Each row represents a billing group; segments show the proportion of settled, partial, and overdue invoices.
+
+**Design decision:** Semantic status colors (green/amber/red) were enforced as a platform-wide standard rather than allowing per-chart color choices. This makes status states immediately recognizable regardless of which chart or module the user is viewing.
+
+**Business impact:** Reduced time to identify high-risk billing groups; improved cash flow visibility.
+
+```
+Group A  [████████████████████ Paid 72%][████ Partial 18%][██ Unpaid 10%]
+Group B  [████████████ Paid 44%][█████████ Partial 36%][█████ Unpaid 20%]
+Group C  [█████ Paid 20%][███████ Partial 28%][█████████████ Unpaid 52%]
+```
+
+---
+
+### 5.3 Result Release Rate (SLA Compliance)
+**Chart type:** Donut chart
+**Module palette:** Reports (green)
+**Library:** Flot
+
+**Context:** Clinical managers monitor the percentage of test results released within the agreed SLA window. This chart appears on the Reports dashboard alongside raw counts.
+
+**Design decision:** The donut format was selected over a simple percentage card because it communicates proportionality at a glance and supports a second segment (delayed releases) without clutter. The Reports module palette (green ramp) differentiates it from Appointments and Accounting charts.
+
+**Business impact:** Early detection of result bottlenecks; supports SLA reporting to hospital partners.
+
+```
+  On-time release:  74%  ●●●●●●●●●●●●●●●●●●●●●●○○○○○○
+  Delayed:          26%  ●●●●●●●○○○○○○○○○○○○○○○○○○○○○
+```
+
+---
+
+### 5.4 Appointment Cancellation Trend
+**Chart type:** Dual-line time series (actual vs. baseline)
+**Module palette:** Appointments (blue)
+**Library:** Chart.js
+
+**Context:** Admins track weekly cancellation rates against a rolling baseline to detect scheduling friction, seasonal patterns, or capacity bottlenecks. The dual-line format shows deviation from expected behavior.
+
+**Design decision:** A solid line (actual) paired with a dashed line (baseline) was used rather than two solid lines — making the comparison immediately scannable without a legend lookup. The Appointments palette (blue) distinguishes this from clinical and financial dashboards.
+
+**Business impact:** Earlier identification of scheduling issues, reducing the impact of last-minute cancellations on resource utilization.
+
+```
+Actual      ─────────────────────────────────────
+Baseline    - - - - - - - - - - - - - - - - - - -
+
+Week 1   Week 2   Week 3   Week 4   Week 5   Week 6
+```
+
+---
+
+## 6. Tech Stack & Tools
+
+### Visualization & Reporting
+| Tool | Purpose |
+|---|---|
+| Chart.js | Operational dashboards, trend charts, bar/donut charts |
+| Flot | Legacy chart modules (unified defaults applied) |
+| PDFMake | Patient report PDFs, receipts, export documents |
+| DataTables | Tabular data with CSV/Excel/PDF export |
+
+### Backend & Infrastructure
+| Tool | Purpose |
+|---|---|
+| Laravel / PHP | Application framework |
+| MySQL | Primary data store |
+| Twilio | SMS notifications |
+| SMTP | Branded email delivery |
+| WhatsApp API | Receipt and report messaging |
+
+### Frontend & UX
+| Tool | Purpose |
+|---|---|
+| Summernote | Rich text editor for templates |
+| SweetAlert | User-facing alerts and confirmations |
+| Select2 | Enhanced select components |
+| QR Code library | Patient portal access links in PDFs |
+| ICS / iCal | Calendar export for patients and admins |
+
+### Security & Governance
+| Tool | Purpose |
+|---|---|
+| Google 2FA | Optional and enforced two-factor authentication |
+| Role-based permissions | Secure access for all five user types |
+| Google Maps API | Branch location and mapping |
+
+---
+
+## 7. Key Outcomes & Impact
+
+- 🟢 **Visualization coherence** — Reduced cross-module visual inconsistency by introducing unified chart defaults and module-aware palettes; clinical and finance users reported faster dashboard comprehension.
+
+- 🔵 **Zero scheduling conflicts** — Resource-aware booking with branch-level availability checks and buffer windows eliminated double-booking across all branches.
+
+- 🟡 **Reduced engineering dependency** — Admins now manage AI provider selection, cost caps, chart palettes, and brand themes through governance UIs — with zero code changes required for routine configuration.
+
+- 🔴 **Financial transparency** — Real-time commission ledgers with automated webhook-triggered credits improved referring doctor trust and reduced manual payout reconciliation.
+
+- 🟣 **Elevated patient communications** — Brand-aligned PDFs, email, SMS, and WhatsApp notifications — all configurable by non-technical admins — improved readability and reduced patient support queries.
+
+- ⚪ **Compliance posture** — AI-generated content is non-diagnostic, fully white-label, and includes mandatory disclaimers with consent logging on every interaction.
+
+---
+
+## 8. Portfolio Highlights
+
+> **Visualization governance** — Directed analytics color standardization across a multi-module medical platform; introduced status mapping, module-aware palettes, and a no-code Charts configuration UI for admin-managed visual governance.
+
+> **AI engine architecture** — Operationalized a compliance-first, white-label Smart AI Engine with provider failover, cost caps, consent logging, and mandatory non-diagnostic disclaimers — preserving clinical authority throughout.
+
+> **Scheduling systems** — Implemented conflict-free, resource-aware appointment booking with setup/cleanup buffers, ICS export (patient and admin), and external calendar sync (Google / Microsoft).
+
+> **Financial workflows** — Built a doctor commission wallet with configurable referral rules, ledgers, webhook-triggered credits, and self-service payout requests integrated into payment processing flows.
+
+---
+![Chart description](./assets/chart-name.png)
+
+## License
+
+This project is proprietary. All rights reserved.
+
+
