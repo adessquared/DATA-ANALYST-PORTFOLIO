@@ -1,0 +1,9 @@
+NFT Floor Price Analyzer: A Python script that tracks NFT collections and analyzes price trends.
+
+Ethereum Gas Tracker: A dashboard (Power BI/Tableau) visualizing gas fees over time to find the cheapest times to transact.
+
+Wallet Transaction Visualizer: Use Python to pull data from Etherscan and visualize the flow of money between wallets.
+
+Hybrid (Blockchain + AI):
+
+Smart Contract Risk Analyzer: Use AI to analyze Solidity code for potential vulnerabilities or unusual patterns.
