@@ -1,1 +1,17 @@
+Option 1: Professional Overview (Best for GitHub Profile or Portfolio Homepage)
 
+SQL for Data Analytics
+
+This repository serves as a comprehensive showcase of my proficiency in Structured Query Language (SQL) for end-to-end data analysis. The projects within demonstrate my ability to extract, transform, and analyze complex datasets to drive actionable business insights.
+
+The work is organized to highlight key competencies, including:
+
+Database Design & Architecture: Creating normalized schemas and optimizing table structures for analytical efficiency.
+
+Data Cleaning & Transformation: Employing advanced queries to standardize data, handle missing values, and prepare datasets for analysis.
+
+Exploratory Data Analysis (EDA): Utilizing complex joins, subqueries, and window functions to uncover trends and patterns.
+
+Reporting & Presentation: Crafting clear, decision-driven reports that translate raw data into strategic recommendations.
+
+Each project is documented to illustrate not just the technical query, but the analytical thinking behind it. I invite you to review my work and welcome the opportunity to discuss how these skills can contribute to your organization's data goals.
