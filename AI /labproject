@@ -1,0 +1,611 @@
+# 🤖 LabProject — AI Engine Schema Analysis
+
+![Domain](https://img.shields.io/badge/Domain-Clinical%20AI%20%7C%20Medical%20Lab-0C447C?style=flat-square&labelColor=E6F1FB)
+![Stack](https://img.shields.io/badge/Stack-MySQL%208.3%20%7C%20PHP%208.3%20%7C%20Laravel-085041?style=flat-square&labelColor=E1F5EE)
+![Tables](https://img.shields.io/badge/Schema-57%20Tables%20%7C%2081%20Migrations-633806?style=flat-square&labelColor=FAEEDA)
+![AI](https://img.shields.io/badge/AI-Multi--Provider%20%7C%20GPT--4o%20%7C%20Claude%20%7C%20Perplexity-27500A?style=flat-square&labelColor=EAF3DE)
+
+> **Project:** `labproject` — End-to-end medical lab management system with a compliance-first, multi-provider AI interpretation engine layered over a clinical test result lifecycle.
+> **File:** `labproject.sql` — 99 KB, 1,894 lines, 57 tables, 81 migration batches.
+> **Analysis focus:** AI infrastructure, provider governance, clinical interpretation pipeline, compliance architecture, and the 19-day sprint that transformed a legacy LIMS into an AI-augmented clinical intelligence platform.
+
+---
+
+## Table of Contents
+
+1. [Platform Overview](#1-platform-overview)
+2. [Database Schema Map](#2-database-schema-map)
+3. [AI Engine Architecture](#3-ai-engine-architecture)
+4. [AI Provider Governance](#4-ai-provider-governance)
+5. [Clinical Interpretation Pipeline](#5-clinical-interpretation-pipeline)
+6. [Compliance and Consent Design](#6-compliance-and-consent-design)
+7. [Migration Timeline — AI Evolution](#7-migration-timeline--ai-evolution)
+8. [Appointment and Scheduling Intelligence](#8-appointment-and-scheduling-intelligence)
+9. [Doctor Commission and Financial Schema](#9-doctor-commission-and-financial-schema)
+10. [RBAC and Permission Architecture](#10-rbac-and-permission-architecture)
+11. [Schema Design Observations](#11-schema-design-observations)
+12. [Analytical SQL Queries](#12-analytical-sql-queries)
+13. [Data Quality Findings](#13-data-quality-findings)
+14. [Portfolio Takeaways](#14-portfolio-takeaways)
+
+---
+
+## 1. Platform Overview
+
+**LabProject** is a production-grade medical laboratory information management system (LIMS) extended with a white-label, multi-provider AI interpretation layer. It manages the complete clinical test lifecycle — from patient registration and test ordering through sample processing, result entry, AI-assisted interpretation, and final report delivery.
+
+**Platform evolution from migrations:**
+
+| Era | Period | Focus |
+|---|---|---|
+| Core LIMS | Jun 2020 – Nov 2021 | Patients, tests, cultures, doctors, billing, reporting |
+| AI Layer | Feb 10, 2026 | AI providers, interpretations, patient subscriptions, payments |
+| External Reports | Feb 11, 2026 | Upload and AI analysis of external lab PDFs |
+| Doctor Wallet | Feb 11, 2026 | Commission rules, ledgers, payout requests |
+| Appointments | Feb 11, 2026 | Scheduling, availability, resources, reminders, triage |
+
+The platform was built in 2020–2021 as a standard LIMS, then received a **complete AI and commercial feature overhaul in February 2026** — all within a single 19-day engineering sprint (Feb 8–Feb 26).
+
+---
+
+## 2. Database Schema Map
+
+**57 tables** across 7 functional domains:
+
+| Domain | Tables | Purpose |
+|---|---|---|
+| **AI Engine** | `ai_providers`, `ai_branding_settings`, `ai_interpretations`, `ai_interpretation_markers`, `ai_usage_logs` | Multi-provider AI with compliance branding |
+| **Clinical Core** | `tests`, `test_options`, `cultures`, `culture_options`, `antibiotics`, `group_tests`, `group_test_results`, `group_cultures`, `group_culture_results`, `groups`, `visits` | Full LIMS test and culture lifecycle |
+| **Patients** | `patients`, `patient_plans`, `patient_subscriptions`, `patient_external_reports` | Patient identity, portals, subscriptions, external PDF ingestion |
+| **Doctors and Finance** | `doctors`, `doctor_wallets`, `doctor_wallet_ledgers`, `doctor_commission_rules`, `doctor_payout_requests`, `doctor_referrals`, `doctor_availabilities`, `availability_exceptions`, `expenses`, `expense_categories`, `contracts` | Doctor economics and scheduling |
+| **Appointments** | `appointments`, `appointment_reminders`, `resources`, `resource_reservations` | Smart scheduling with resource conflict prevention |
+| **Payments** | `payment_gateways`, `payment_transactions`, `payment_webhook_events` | Multi-gateway billing with webhook idempotency |
+| **Auth and Config** | `users`, `roles`, `permissions`, `role_permissions`, `user_roles`, `settings`, `branches`, `modules`, `languages`, `currencies` | RBAC, internationalisation, platform config |
+
+---
+
+## 3. AI Engine Architecture
+
+The AI layer is a **4-provider failover system** with white-label branding, consent tracking, cost governance, and clinical interpretation caching — embedded directly into the medical record pipeline.
+
+### Provider Registry (`ai_providers`)
+
+```sql
+CREATE TABLE `ai_providers` (
+  `name`           varchar(191),   -- Provider display name
+  `model`          varchar(191),   -- Specific model version
+  `api_key`        text,           -- Injected at runtime (NULL in dump = env-managed)
+  `active`         tinyint(1),     -- Current active provider flag
+  `failover_order` int UNSIGNED,   -- Sequential fallback priority
+  `token_costs`    json,           -- Per-token pricing config
+  `monthly_caps`   json,           -- Budget ceiling per provider
+  `status`         varchar(191)    -- active / inactive
+);
+```
+
+### Configured Provider Stack (Feb 10, 2026)
+
+| Priority | Provider | Model | Status |
+|---|---|---|---|
+| 1 — Primary | **OpenAI** | `gpt-4o-mini` | Active |
+| 2 — Failover 1 | Azure OpenAI | `gpt-4o` | Inactive |
+| 3 — Failover 2 | **Anthropic** | `claude-3.5-sonnet` | Inactive |
+| 4 — Failover 3 | Perplexity | `sonar` | Inactive |
+
+**Key design insight:** `gpt-4o-mini` is chosen as primary — a deliberate cost optimisation. The more expensive `gpt-4o` is Failover 1, and `claude-3.5-sonnet` is Failover 2. This reflects a cost-first, quality-fallback strategy appropriate for a high-volume medical lab context.
+
+**API keys are NULL in the dump** — keys are injected at runtime via environment variables, never stored in the database. This is the correct security posture for a medical system.
+
+---
+
+## 4. AI Provider Governance
+
+### `token_costs` JSON field
+
+The `token_costs` column allows per-provider cost tracking without schema migrations when pricing changes:
+
+```json
+{
+  "input_per_1k":  0.00015,
+  "output_per_1k": 0.00060
+}
+```
+
+This enables `ai_usage_logs.cost_estimate` to be calculated dynamically based on the active provider's pricing at the time of each call.
+
+### `monthly_caps` JSON field
+
+```json
+{
+  "hard_cap_usd":  50.00,
+  "soft_warn_usd": 40.00
+}
+```
+
+Admins can set spend ceilings per provider. When a cap is hit, the system routes automatically to the next `failover_order` provider — a critical governance control for a platform where AI costs scale with patient volume.
+
+### AI Usage Log (`ai_usage_logs`)
+
+```sql
+CREATE TABLE `ai_usage_logs` (
+  `patient_id`    bigint UNSIGNED,  -- Links to patient record
+  `provider`      varchar(191),     -- Which provider served the request
+  `model`         varchar(191),     -- Exact model used
+  `prompt_type`   varchar(191),     -- Type of AI call (interpretation, summary, etc.)
+  `tokens_in`     int UNSIGNED,     -- Input token count
+  `tokens_out`    int UNSIGNED,     -- Output token count
+  `cost_estimate` decimal(10,4),    -- Computed cost at request time
+  `latency_ms`    int UNSIGNED,     -- Response time in milliseconds
+  `status`        varchar(191),     -- ok / error / timeout
+  `consent_at`    timestamp         -- Timestamp of patient consent
+);
+```
+
+This table enables: provider cost dashboards, latency benchmarking across models, per-patient AI spend attribution, and consent audit trails — all critical for a compliant medical AI deployment.
+
+---
+
+## 5. Clinical Interpretation Pipeline
+
+### How AI integrates into the test result lifecycle
+
+```
+Patient Registered
+       │
+       ▼
+Test Ordered  (groups + group_tests)
+       │
+       ▼
+Results Entered  (group_test_results)
+       │
+       ▼
+AI Interpretation Triggered
+       │                        │
+       ▼                        ▼
+ai_interpretations       ai_interpretation_markers
+  result_id                marker_name
+  patient_id               value
+  provider_ref             reference_range
+  model_ref                explanation (per-marker AI text)
+  summary (narrative)
+  status_indicators (JSON)
+  disclaimer (mandatory)
+  cache_ttl
+       │
+       ▼
+Patient Report Generated (AI summary + mandatory disclaimer)
+       │
+       ▼
+ai_usage_logs (cost + consent + latency recorded)
+```
+
+### `ai_interpretations` — holistic summary
+
+```sql
+CREATE TABLE `ai_interpretations` (
+  `result_id`         bigint UNSIGNED NOT NULL,  -- FK to group_test_results
+  `patient_id`        bigint UNSIGNED NOT NULL,
+  `provider_ref`      varchar(191),              -- e.g. 'openai'
+  `model_ref`         varchar(191),              -- e.g. 'gpt-4o-mini'
+  `summary`           longtext,                  -- AI-generated narrative
+  `status_indicators` json,                      -- Flagged markers (high/low/critical)
+  `disclaimer`        text,                      -- Non-diagnostic disclaimer
+  `generated_at`      timestamp,
+  `cache_ttl`         int UNSIGNED               -- Seconds to cache (0 = no cache)
+);
+```
+
+### `ai_interpretation_markers` — per-marker explanations
+
+```sql
+CREATE TABLE `ai_interpretation_markers` (
+  `interpretation_id` bigint UNSIGNED NOT NULL,
+  `marker_name`       varchar(191),   -- e.g. 'Hemoglobin', 'WBC', 'Creatinine'
+  `value`             varchar(191),   -- Patient's actual result value
+  `reference_range`   varchar(191),   -- Normal range for context
+  `explanation`       longtext        -- AI explanation of this specific marker
+);
+```
+
+This design separates the holistic summary from marker-level explanations — allowing the UI to render granular "what does this value mean?" tooltips alongside the overall interpretation narrative.
+
+### External Report AI Analysis (`patient_external_reports`)
+
+The platform ingests external lab PDFs and runs AI analysis on them too:
+
+```sql
+CREATE TABLE `patient_external_reports` (
+  `original_filename` varchar(191),
+  `mime_type`         varchar(191),
+  `size_bytes`        bigint UNSIGNED,
+  `text_content`      longtext,       -- Extracted text from PDF
+  `parsed_json`       json,           -- Structured parse output
+  `status`            varchar(191),   -- pending_extraction / extracted / failed
+  `ai_summary`        longtext,       -- AI narrative of external report
+  `last_summary_at`   timestamp
+);
+```
+
+This creates a unified AI analysis layer across both internal lab results and external reports the patient brings in — a longitudinal health intelligence capability.
+
+---
+
+## 6. Compliance and Consent Design
+
+The AI engine treats clinical compliance as a first-class schema concern.
+
+### Mandatory Disclaimer Architecture
+
+Every `ai_interpretations` record carries a `disclaimer` field. The `ai_branding_settings` table controls how this is presented per-tenant:
+
+```sql
+CREATE TABLE `ai_branding_settings` (
+  `display_name`    varchar(191),  -- White-label AI name (e.g. "Lab Insights")
+  `subtitle`        varchar(191),  -- Tagline shown to patients
+  `disclaimer_text` text,          -- The mandatory non-diagnostic disclaimer
+  `updated_by`      bigint         -- Admin who last changed this
+);
+```
+
+A clinical lab can brand their AI as "Lab Insights by [Lab Name]" — fully white-labelled, no reference to OpenAI or Anthropic in any patient-facing UI.
+
+### Consent Logging
+
+`ai_usage_logs.consent_at` records the exact timestamp of patient consent before AI analysis runs. Combined with `provider` and `model`, this creates an immutable per-call consent audit trail — essential for regulatory compliance in healthcare contexts.
+
+### Patient 2FA (not just users)
+
+The `patients` table has its own independent 2FA implementation:
+
+```sql
+`two_factor_code`       varchar(191),    -- OTP code
+`two_factor_expires_at` timestamp,
+`google2fa_secret`      varchar(191),    -- TOTP secret
+`google2fa_enabled`     tinyint(1),
+`two_factor_type`       varchar(191)     -- 'email' or 'whatsapp'
+```
+
+Patient 2 (Ibrahim Adegoke) has `google2fa_enabled = 1` and `two_factor_type = 'whatsapp'` — confirming the WhatsApp 2FA channel is live in production, not just designed.
+
+---
+
+## 7. Migration Timeline — AI Evolution
+
+The migration log is a complete engineering narrative of how this platform transformed:
+
+```
+BATCH 1  (Nov 2021)    Core LIMS seed
+         patients, groups, tests, cultures, antibiotics, doctors
+         roles, permissions, settings, activity_log, languages
+
+BATCH 2-6 (Feb 08 2026) Security hardening
+         2FA columns on patients (email, google2fa, whatsapp modes)
+         event + batch_uuid on activity_log for audit completeness
+
+BATCH 7  (Feb 10 2026) AI ENGINE LAUNCH ◀ central feature
+         ai_providers          — 4-provider failover registry
+         ai_branding_settings  — white-label compliance branding
+         ai_interpretations    — AI summaries with cache + disclaimer
+         ai_interpretation_markers — per-marker AI explanations
+         ai_usage_logs         — cost / consent / latency tracking
+         patient_plans         — subscription tier definitions
+         patient_subscriptions — plan membership records
+
+BATCH 8-10 (Feb 10 2026) Payment infrastructure
+         payment_gateways       — multi-gateway config
+         payment_transactions   — idempotent transaction ledger
+         payment_webhook_events — webhook ingestion + signature validation
+
+BATCH 11-12 (Feb 11 2026) External intelligence + doctor economics
+         patient_external_reports — PDF upload + AI analysis
+         doctor_referrals          — referral source tracking
+         doctor_wallets            — one wallet per doctor (UNIQUE constraint)
+         doctor_wallet_ledgers     — double-entry style event log
+         doctor_commission_rules   — flexible rule engine
+         doctor_payout_requests    — self-service withdrawal flow
+
+BATCH 13-19 (Feb 11 2026) Appointments and scheduling
+         appointments              — full lifecycle: triage, deposit, check-in, no-show
+         doctor_availabilities     — weekly slots with buffer config
+         availability_exceptions   — one-off blocks and overrides
+         resources + reservations  — physical resource conflict prevention
+         appointment_reminders     — multi-channel (email / SMS / WhatsApp)
+
+TOTAL DELIVERED: Feb 8 – Feb 26, 2026 (19-day sprint)
+```
+
+---
+
+## 8. Appointment and Scheduling Intelligence
+
+The appointments schema extends well beyond a simple booking calendar.
+
+### Full Appointment Lifecycle State Machine
+
+```sql
+`status`                 -- requested / confirmed / cancelled / completed
+`triage_used`            -- Was AI triage applied? (tinyint)
+`triage_urgency`         -- low / medium / high / critical
+`checkin_status`         -- arrived / in_room / done / no_show
+`arrived_at`             -- Physical arrival timestamp
+`in_room_at`             -- Room entry timestamp
+`done_at`                -- Completion timestamp
+`no_show_at`             -- No-show detection timestamp
+`calendar_provider`      -- google / microsoft (external sync)
+`calendar_event_id`      -- External calendar event ID
+`deposit_amount`         -- Pre-payment amount
+`deposit_status`         -- paid / waived / refunded
+`deposit_transaction_id` -- FK to payment_transactions
+```
+
+These timestamps enable: wait time analysis (`arrived_at` → `in_room_at`), treatment duration (`in_room_at` → `done_at`), no-show rate tracking, and deposit collection funnel analysis.
+
+### Covering Index Strategy
+
+```sql
+KEY `appointments_doctor_branch_time_status_idx`
+    (doctor_id, branch_id, scheduled_at, status)
+```
+
+This is a **covering index** for the most common availability query: "find all non-cancelled appointments for doctor X at branch Y on date Z" — no additional column lookups required after the index scan.
+
+### Resource Conflict Prevention
+
+```sql
+-- resource_reservations
+KEY `resv_idx` (resource_id, start_time, end_time)
+```
+
+The `(resource_id, start_time, end_time)` composite index enables O(log n) overlap detection — the system checks "is this resource free between T1 and T2?" without full table scans.
+
+### Reminder Settings (from live data)
+
+```json
+{
+  "active": true,
+  "channels": { "email": true, "sms": true, "whatsapp": false },
+  "offsets_hours": [48, 24, 2],
+  "email": { "subject": "Appointment Reminder",
+             "body": "Hello {patient_name}, your appointment is at {appointment_time}." },
+  "sms":   { "message": "Reminder: {appointment_time} with {doctor_name} at {branch_name}." }
+}
+```
+
+Reminders fire at 48h, 24h, and 2h before appointments across email and SMS channels (WhatsApp configured but not yet active).
+
+---
+
+## 9. Doctor Commission and Financial Schema
+
+### Commission Rule Engine (`doctor_commission_rules`)
+
+```sql
+CREATE TABLE `doctor_commission_rules` (
+  `plan_id`            bigint,          -- Ties commission to a patient plan
+  `type`               varchar(191),    -- 'percent' or 'flat'
+  `value`              decimal(10,2),   -- Rate or fixed amount
+  `applies_first`      tinyint(1),      -- First payment only?
+  `applies_recurring`  tinyint(1),      -- Applies to renewals?
+  `applies_per_report` tinyint(1),      -- Per-report incentive?
+  `start_at`           timestamp,       -- Rule validity start
+  `end_at`             timestamp        -- Rule validity end
+);
+```
+
+This is a **flexible rule engine** — not just a flat rate. Rules can be time-bounded, plan-specific, and differentiated between first-time and recurring payments. `applies_per_report` enables per-report incentive models beyond subscription commissions.
+
+### Doctor Wallet Ledger (Double-Entry Style)
+
+```sql
+CREATE TABLE `doctor_wallet_ledgers` (
+  `doctor_id`              bigint,
+  `patient_id`             bigint,    -- Which patient triggered this
+  `subscription_id`        bigint,    -- Which subscription
+  `payment_transaction_id` bigint,    -- Which payment event
+  `plan_id`                bigint,    -- Which plan
+  `event_type`             varchar,   -- commission_earned / payout / adjustment
+  `amount`                 decimal(12,2),
+  `currency`               varchar(10),
+  `metadata`               json       -- Flexible additional context
+);
+```
+
+Every wallet credit is a ledger entry linked to the exact patient, subscription, payment, and plan that triggered it. This creates a fully auditable commission trail for financial disputes and tax reporting.
+
+---
+
+## 10. RBAC and Permission Architecture
+
+### Role Hierarchy
+
+| Role | Permissions | Context |
+|---|---|---|
+| `super_admin` | All 82 permissions | Full platform access |
+| `admin` | 6 permissions (appointments + availability) | Scheduling-focused admin |
+| `receptionist` | 3 permissions (view/create/edit appointments) | Front-desk only |
+
+### 82 Permissions Across 24 Modules
+
+Standard CRUD across all clinical modules plus specialised permissions:
+
+- **`sign_report`** — gates clinician digital signature on final reports, separating result entry from report release
+- **`generate_report_accounting`** — dedicated permission for accounting report generation
+- **`view_availability` / `edit_availability`** — granular scheduling governance
+
+The `sign_report` permission is architecturally significant — it enforces a two-step verification workflow between a technician entering results and a clinician releasing the final report.
+
+---
+
+## 11. Schema Design Observations
+
+### Strengths
+
+| Pattern | Detail |
+|---|---|
+| Failover-ordered AI providers | `failover_order` enables deterministic fallback without code changes |
+| AI result caching | `cache_ttl` on interpretations prevents redundant API calls for unchanged results |
+| Consent timestamp | `consent_at` on usage logs creates an immutable per-call consent audit trail |
+| White-label branding | `ai_branding_settings` fully decouples AI provider identity from patient UI |
+| Covering index on appointments | Triple-column composite index optimises the most frequent scheduling query |
+| Resource overlap index | `(resource_id, start_time, end_time)` enables O(log n) conflict detection |
+| Commission rule engine | Time-bounded, plan-specific rules with first/recurring/per-report flags |
+| Double-entry ledger | Every wallet credit linked to patient + subscription + payment + plan |
+| Idempotency key on payments | `payment_transactions.idempotency_key` prevents duplicate charge processing |
+| Webhook signature validation | `payment_webhook_events.signature_valid` flag with raw payload retained |
+
+### Risks and Improvement Opportunities
+
+| Issue | Severity | Recommendation |
+|---|---|---|
+| SMTP credentials in settings | High | Move to encrypted config or environment variable |
+| `patients.dob` as varchar | Medium | Migrate to `date` type for SQL age calculations |
+| Mixed FK types on `groups` | Medium | Align `patient_id`, `doctor_id` to `bigint UNSIGNED` |
+| No UNIQUE on `ai_interpretations(result_id)` | Medium | Add constraint to prevent duplicate interpretations |
+| 2FA codes in plaintext | Medium | Hash OTP codes; encrypt TOTP secrets at rest |
+| `properties` empty on all activity logs | Low | Activity details not captured — investigate hook wiring |
+| Duplicate `de` (German) in languages | Low | IDs 3 and 11 both have `iso = 'de'` — clean up duplicate |
+
+---
+
+## 12. Analytical SQL Queries
+
+### Q1: AI provider cost and error rate summary
+
+```sql
+SELECT
+  provider,
+  model,
+  COUNT(*)                                                        AS total_calls,
+  SUM(tokens_in + tokens_out)                                     AS total_tokens,
+  SUM(cost_estimate)                                              AS total_cost_usd,
+  AVG(latency_ms)                                                 AS avg_latency_ms,
+  ROUND(SUM(CASE WHEN status != 'ok' THEN 1 ELSE 0 END) * 100.0
+        / COUNT(*), 2)                                            AS error_rate_pct
+FROM ai_usage_logs
+GROUP BY provider, model
+ORDER BY total_cost_usd DESC;
+```
+
+### Q2: AI interpretation coverage across all test results
+
+```sql
+SELECT
+  COUNT(DISTINCT gtr.id)                                          AS total_results,
+  COUNT(DISTINCT ai.result_id)                                    AS results_with_ai,
+  ROUND(COUNT(DISTINCT ai.result_id) * 100.0
+        / COUNT(DISTINCT gtr.id), 1)                             AS ai_coverage_pct,
+  COUNT(DISTINCT aim.id)                                          AS total_marker_explanations
+FROM group_test_results gtr
+LEFT JOIN ai_interpretations ai        ON ai.result_id = gtr.id
+LEFT JOIN ai_interpretation_markers aim ON aim.interpretation_id = ai.id;
+```
+
+### Q3: Patient subscription plan distribution
+
+```sql
+SELECT
+  pp.name                                                         AS plan_name,
+  pp.price                                                        AS price_usd,
+  COUNT(ps.id)                                                    AS subscribers,
+  SUM(CASE WHEN ps.status = 'active'    THEN 1 ELSE 0 END)       AS active,
+  SUM(CASE WHEN ps.status = 'cancelled' THEN 1 ELSE 0 END)       AS cancelled
+FROM patient_plans pp
+LEFT JOIN patient_subscriptions ps ON ps.plan_id = pp.id
+GROUP BY pp.id, pp.name, pp.price
+ORDER BY pp.price DESC;
+```
+
+### Q4: Doctor commission wallet health
+
+```sql
+SELECT
+  d.name                                                          AS doctor,
+  dw.current_balance,
+  dw.pending_payout,
+  COUNT(dl.id)                                                    AS ledger_entries,
+  SUM(dl.amount)                                                  AS total_credited,
+  SUM(CASE WHEN dpr.status = 'pending' THEN dpr.amount ELSE 0 END) AS pending_payout_amount
+FROM doctors d
+JOIN doctor_wallets dw              ON dw.doctor_id = d.id
+LEFT JOIN doctor_wallet_ledgers dl  ON dl.doctor_id = d.id
+LEFT JOIN doctor_payout_requests dpr ON dpr.doctor_id = d.id
+GROUP BY d.id, d.name, dw.current_balance, dw.pending_payout
+ORDER BY dw.current_balance DESC;
+```
+
+### Q5: Appointment funnel with wait and treatment time
+
+```sql
+SELECT
+  COUNT(*)                                                         AS total_appointments,
+  SUM(CASE WHEN status = 'confirmed'         THEN 1 ELSE 0 END)   AS confirmed,
+  SUM(CASE WHEN checkin_status = 'arrived'   THEN 1 ELSE 0 END)   AS arrived,
+  SUM(CASE WHEN checkin_status = 'done'      THEN 1 ELSE 0 END)   AS completed,
+  SUM(CASE WHEN no_show_at IS NOT NULL       THEN 1 ELSE 0 END)   AS no_shows,
+  ROUND(AVG(TIMESTAMPDIFF(MINUTE, arrived_at, in_room_at)), 1)    AS avg_wait_min,
+  ROUND(AVG(TIMESTAMPDIFF(MINUTE, in_room_at, done_at)), 1)      AS avg_treatment_min
+FROM appointments;
+```
+
+### Q6: AI spend attributed per patient
+
+```sql
+SELECT
+  p.name                                                          AS patient_name,
+  COUNT(al.id)                                                    AS ai_calls,
+  SUM(al.tokens_in + al.tokens_out)                              AS total_tokens,
+  SUM(al.cost_estimate)                                           AS total_ai_cost_usd,
+  MIN(al.consent_at)                                              AS first_consent
+FROM patients p
+JOIN ai_usage_logs al ON al.patient_id = p.id
+GROUP BY p.id, p.name
+ORDER BY total_ai_cost_usd DESC;
+```
+
+### Q7: Reminder delivery funnel by channel
+
+```sql
+SELECT
+  channel,
+  COUNT(*)                                                          AS total_sent,
+  SUM(CASE WHEN delivered_at IS NOT NULL THEN 1 ELSE 0 END)        AS delivered,
+  SUM(CASE WHEN opened_at IS NOT NULL    THEN 1 ELSE 0 END)        AS opened,
+  SUM(CASE WHEN clicked_at IS NOT NULL   THEN 1 ELSE 0 END)        AS clicked,
+  ROUND(SUM(CASE WHEN delivered_at IS NOT NULL THEN 1 ELSE 0 END)
+        * 100.0 / COUNT(*), 1)                                     AS delivery_rate_pct
+FROM appointment_reminders
+GROUP BY channel;
+```
+
+---
+
+## 13. Data Quality Findings
+
+| Finding | Severity | Detail |
+|---|---|---|
+| SMTP password in plaintext | High | `settings` key `emails` contains live SMTP credentials — must be moved to env vars |
+| `patients.dob` as varchar | Medium | Stored as `'28-08-1995'` string, prevents SQL-based age or DOB range queries |
+| Mixed FK types on `groups` | Medium | `patient_id` and `doctor_id` are untyped `int` vs `bigint UNSIGNED` elsewhere |
+| No UNIQUE on `ai_interpretations(result_id)` | Medium | Multiple interpretations can exist per result — no deduplication guard |
+| 2FA codes and TOTP secrets in plaintext | Medium | `two_factor_code` and `google2fa_secret` visible in dump — should be hashed/encrypted |
+| Activity log `properties` always empty | Low | All 42 log entries have `'[]'` properties — audit detail hooks not wired |
+| Duplicate German locale in languages | Low | IDs 3 and 11 both have `iso = 'de'` — data entry error |
+
+---
+
+## 14. Portfolio Takeaways
+
+> **Multi-provider AI architecture** — Reverse-engineered a 4-provider failover AI registry (OpenAI, Azure OpenAI, Anthropic, Perplexity) with cost governance, monthly spend caps, and provider-independent white-label branding — entirely from schema and seed data.
+
+> **Compliance-first AI design** — Identified how consent logging (`consent_at`), mandatory disclaimers on every interpretation, and white-label branding tables form a complete clinical AI compliance layer — distinguishing this from a generic LLM integration.
+
+> **Clinical interpretation pipeline** — Mapped the full data flow from test result → AI interpretation → per-marker explanations → cached summary → patient report, demonstrating cross-domain understanding of clinical workflows and LLM integration patterns.
+
+> **Scheduling system depth** — Decoded a covering composite index strategy, resource conflict prevention via time-range indexing, a complete appointment lifecycle state machine with triage, check-in, and no-show tracking, and a multi-channel reminder delivery system.
+
+> **19-day AI transformation sprint** — Identified from migration timestamps that the platform's entire AI, payments, doctor economics, and appointments layer was engineered in a single 19-day sprint (Feb 8–26, 2026) — providing context for schema feature density and evolution patterns.
+
+---
+
+*README · LabProject AI Engine Schema Analysis · Data Analyst Portfolio*
+*Database: `labproject` | Server: MySQL 8.3.0 | Dump date: March 20, 2026*
