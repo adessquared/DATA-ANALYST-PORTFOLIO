@@ -1,6 +1,6 @@
 # 💫 About Me:
 Ibrahim A. Adeosun  
-Data Analyst | Business Intelligence | Data Visualization | AI & Automation  
+Analytics Engineer & AI Solutions Architect | Business Intelligence | Data Visualization | AI & Automation  
 
 Transforming raw data into actionable insights.  
 
