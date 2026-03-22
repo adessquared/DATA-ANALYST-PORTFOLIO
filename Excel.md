@@ -1,0 +1,7 @@
+Thank you for your interest in my Excel portfolio.
+
+You can view my work here:
+![Excel Dashboard](https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/excel2.png)
+
+
+I hope you find it insightful. Please let me know if you have any questions or would like to discuss my process.
