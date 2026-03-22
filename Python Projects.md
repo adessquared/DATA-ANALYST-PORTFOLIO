@@ -6,7 +6,7 @@ This dataset integrates your specific project achievements with the high-growth 
  and the $848.13 billion creator economy projection
 .
 # Project Portfolio Dataset: Technical Impact & Market Alignment
-# Prepared by: Ibrahim Adeosun
+# Prepared by: Ibrahim A. Adeosun
 
 portfolio_projects = [
     {
