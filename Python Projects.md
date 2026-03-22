@@ -161,6 +161,9 @@ Please feel free to reach out if you have any questions.
 ---
 
 ## Data Visualizations
+![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/powerBi1.png)
+![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/powerBi2.png)
+
 
 ![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/578d39c432291dcbbfc4816e0c6e81aa678130ee/Data%20Visualization/Architecting_the_Digital_Economy_page-0001.jpg)
 ![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0002.jpg)
