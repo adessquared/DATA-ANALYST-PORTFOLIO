@@ -199,5 +199,4 @@ Please feel free to reach out if you have any questions.
 
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0011.jpg" width="90%" alt="Page 11" />
 </div>
-![Architecting the Digital Economy - Page 10](https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0010.jpg)
-![Architecting the Digital Economy - Page 11](https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0011.jpg)
+
