@@ -164,26 +164,45 @@ Please feel free to reach out if you have any questions.
 
 ## 📊 Data Visualizations: Architecting the Digital Economy
 
+<!-- DATA VISUALIZATION SECTION -->
+<hr />
+<h2>📊 Data Visualizations: Architecting the Digital Economy</h2>
+<p align="center"><i>A comprehensive visual analysis of market trends, engagement metrics, and financial frameworks.</i></p>
+
 <div align="center">
-  <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0001.jpg" width="90%" />
-  <br><br>
+  <img src="https://main.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0001.jpg" width="90%" />
+  <p><b>Strategic Overview & Market Alignment</b></p>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0002.jpg" width="90%" />
-  <br><br>
+  <p><b>Financial Flow Analysis</b></p>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0003.jpg" width="90%" />
-  <br><br>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0004.jpg" width="90%" />
-  <br><br>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0005.jpg" width="90%" />
-  <br><br>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0006.jpg" width="90%" />
-  <br><br>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0007.jpg" width="90%" />
-  <br><br>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0008.jpg" width="90%" />
-  <br><br>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0009.jpg" width="90%" />
-  <br><br>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0010.jpg" width="90%" />
-  <br><br>
+  <br />
+
   <img src="https://raw.githubusercontent.com/adessquared/DATA-ANALYST-PORTFOLIO/main/Data%20Visualization/Architecting_the_Digital_Economy_page-0011.jpg" width="90%" />
 </div>
+
+<hr />
