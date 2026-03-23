@@ -24,28 +24,17 @@ Each project acts as a node in the digital economy infrastructure.
 
 🏗️ Architecture Overview
 
-                ┌────────────────────┐
-                │ Social Agent       │
-                │ (Marketing AI)     │
-                └────────┬───────────┘
-                         │
-                         ▼
- ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
- │ ViralGrowth  │──▶│ Data Layer   │◀──│ LabProject   │
- │ (Fintech)    │   │ Analytics    │   │ (Medical AI) │
- └──────────────┘   └──────────────┘   └──────────────┘
-                         │
-                         ▼
-                ┌────────────────────┐
-                │ PonziStory         │
-                │ (Fraud Detection)  │
-                └────────┬───────────┘
-                         ▼
-                ┌────────────────────┐
-                │ Cycler Matrix      │
-                │ (Mobile Fintech)   │
-                └────────────────────┘
+flowchart LR
 
+    SA[Social Agent<br/>(Marketing AI)] --> DL
+    VG[ViralGrowth<br/>(Fintech)] --> DL
+    LP[LabProject<br/>(Medical AI)] --> DL
+
+    DL[Central Data Layer<br/>Analytics Engine]
+
+    DL --> PS[PonziStory<br/>(Fraud Detection)]
+    PS --> CM[Cycler Matrix<br/>(Mobile Fintech)]
+               
 📊 Key Results (Executive Summary)
 Metric	Result
 💰 Revenue Growth	+35%
