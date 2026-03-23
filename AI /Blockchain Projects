@@ -1,9 +1,126 @@
-NFT Floor Price Analyzer: A Python script that tracks NFT collections and analyzes price trends.
+# 🔗 Blockchain & AI Analytics Projects  
 
-Ethereum Gas Tracker: A dashboard (Power BI/Tableau) visualizing gas fees over time to find the cheapest times to transact.
+This section showcases advanced data analytics projects combining blockchain data analysis and artificial intelligence to solve real-world financial and security problems.  
 
-Wallet Transaction Visualizer: Use Python to pull data from Etherscan and visualize the flow of money between wallets.
+---
 
-Hybrid (Blockchain + AI):
+## 📌 1. NFT Floor Price Analyzer  
 
-Smart Contract Risk Analyzer: Use AI to analyze Solidity code for potential vulnerabilities or unusual patterns.
+**Tools:** Python | Pandas | Matplotlib | APIs  
+
+### 🔍 Business Problem  
+NFT investors often struggle to track price trends across collections, leading to poor buying and selling decisions.  
+
+### 📊 Solution  
+Developed a Python-based analytics tool to track NFT floor prices and identify market trends.  
+
+### ⚙️ Process  
+- Collected NFT data using APIs  
+- Cleaned and structured time-series data  
+- Performed trend and volatility analysis  
+- Visualized price movements over time  
+
+### 📈 Key Insights  
+- Identified collections with consistent upward trends  
+- Detected high-volatility NFTs suitable for short-term trading  
+- Highlighted market cycles and seasonal patterns  
+
+### 💡 Business Value  
+- Enables investors to make data-driven decisions  
+- Reduces risk by identifying unstable collections  
+- Supports timing strategies for buying and selling  
+
+---
+
+## 📌 2. Ethereum Gas Fee Optimization Dashboard  
+
+**Tools:** Power BI | SQL | Excel  
+
+### 🔍 Business Problem  
+Ethereum users often overpay transaction fees due to lack of visibility into gas fee trends.  
+
+### 📊 Solution  
+Built an interactive dashboard to analyze historical gas fees and identify optimal transaction times.  
+
+### ⚙️ Process  
+- Extracted gas fee data from blockchain APIs  
+- Transformed and modeled data in SQL  
+- Designed interactive Power BI dashboard  
+- Created time-based trend analysis  
+
+### 📈 Key Insights  
+- Identified peak and off-peak transaction periods  
+- Highlighted daily and weekly gas fee patterns  
+- Detected anomalies in transaction costs  
+
+### 💡 Business Value  
+- Helps users minimize transaction costs  
+- Provides actionable insights for optimal transaction timing  
+- Improves cost efficiency for frequent traders  
+
+---
+
+## 📌 3. Wallet Transaction Flow Visualizer  
+
+**Tools:** Python | Network Analysis | Matplotlib  
+
+### 🔍 Business Problem  
+Tracking the movement of funds between wallets is complex and difficult to interpret manually.  
+
+### 📊 Solution  
+Developed a visualization tool to map and analyze wallet-to-wallet transactions.  
+
+### ⚙️ Process  
+- Pulled transaction data from Etherscan API  
+- Structured and processed transaction flows  
+- Built network graphs to visualize relationships  
+- Analyzed transaction frequency and volume  
+
+### 📈 Key Insights  
+- Identified major wallet hubs and transaction clusters  
+- Detected unusual transaction patterns  
+- Highlighted high-volume wallets  
+
+### 💡 Business Value  
+- Supports fraud detection and investigation  
+- Improves transparency in blockchain transactions  
+- Helps analysts understand fund movement  
+
+---
+
+## 🤖 4. Smart Contract Risk Analyzer (AI-Powered)  
+
+**Tools:** Python | NLP | Machine Learning  
+
+### 🔍 Business Problem  
+Smart contracts can contain vulnerabilities that lead to financial losses, and manual audits are expensive.  
+
+### 📊 Solution  
+Built an AI-powered tool to analyze Solidity smart contracts and detect potential risks.  
+
+### ⚙️ Process  
+- Collected smart contract code samples  
+- Applied NLP techniques to analyze patterns  
+- Trained model to detect anomalies and vulnerabilities  
+- Generated automated risk reports  
+
+### 📈 Key Insights  
+- Identified common vulnerability patterns  
+- Detected suspicious contract structures  
+- Highlighted high-risk code segments  
+
+### 💡 Business Value  
+- Reduces risk of smart contract exploitation  
+- Provides early detection of vulnerabilities  
+- Supports developers and investors in decision-making  
+
+---
+
+## 🚀 Key Skills Demonstrated  
+
+- Blockchain Data Analysis  
+- Time-Series Analysis  
+- Data Visualization & Dashboarding  
+- API Data Extraction  
+- Network Analysis  
+- AI & Machine Learning Applications  
