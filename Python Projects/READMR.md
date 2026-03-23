@@ -127,20 +127,22 @@ Analytics is not reporting — it is decision-making
 🖥️ Dashboard: “Digital Economy Intelligence Hub”
 
 🔹 1. KPI Overview (Top Cards)
-[ Revenue Growth ]      35%
-[ ROAS Lift ]           22%
-[ Fraud Reduction ]     40%
-[ Time Saved ]          8h/day
-[ User ROI ]            2.3x
+[ Revenue Growth ] 35%
+[ ROAS Lift ] 22%
+[ Fraud Reduction ] 40%
+[ Time Saved ] 8h/day
+[ User ROI ] 2.3x
 
 
 🔹 2. Project Performance Comparison (Bar Chart)
-Project	Impact Score
-ViralGrowth	██████████
-Social Agent	████████
-LabProject	███████
-PonziStory	███████
-Cycler	██████
+
+Project                Impact Score
+ViralGrowth        🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
+Social Agent       🟦🟦🟦🟦🟦🟦🟦🟦
+LabProject         🟨🟨🟨🟨🟨🟨🟨
+PonziStory         🟥🟥🟥🟥🟥🟥🟥
+Cycler             🟪🟪🟪🟪🟪🟪
+
 
 🔹 3. Revenue & Growth Trends
 Line chart:
@@ -148,10 +150,12 @@ X-axis: Time (months)
 Y-axis: Revenue
 Highlight: +35% growth (ViralGrowth)
 
+
 🔹 4. Fraud Detection Analytics
 Pie Chart:
 Fraud prevented: 40%
 Normal transactions: 60%
+
 Table:
 Suspicious patterns
 Wallet anomalies
@@ -162,6 +166,7 @@ Metrics:
 Total AI calls
 Cost saved: 15%
 Avg latency
+
 Chart:
 Provider usage distribution
 
@@ -169,8 +174,8 @@ Provider usage distribution
 🔹 6. User Behavior & Retention
 
 Funnel:
-
 Signup → Active → Task Completion → ROI Growth
+
 Highlight:
 78% completion
 2.3x ROI users
@@ -180,17 +185,20 @@ Highlight:
 
 Before vs After:
 
-Before: 0.45  █████████
-After : 0.32  ██████
+Before: 0.45  🟥🟥🟥🟥🟥🟥🟥🟥🟥
+After : 0.32  🟩🟩🟩🟩🟩🟩
 
 
 🔹 8. Engagement Intelligence (Social Agent)
+
 Channel comparison:
 Threads
 Instagram
 Email
+
 Insight:
 👉 Threads = highest engagement driver
+
 
 ![Author](https://img.shields.io/badge/Author-Ibrahim%20A.%20Adeosun-0C447C?style=flat-square&labelColor=E6F1FB)
 ![Focus](https://img.shields.io/badge/Focus-Data%20Analytics%20%7C%20AI%20Governance%20%7C%20Fintech-085041?style=flat-square&labelColor=E1F5EE)
