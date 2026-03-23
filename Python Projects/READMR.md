@@ -26,14 +26,8 @@ Each project acts as a node in the digital economy infrastructure.
 
 flowchart LR
 
-    SA[Social Agent<br/>(Marketing AI)] --> DL
-    VG[ViralGrowth<br/>(Fintech)] --> DL
-    LP[LabProject<br/>(Medical AI)] --> DL
+    <img width="1772" height="630" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/ea805d33-3f0f-4c0e-b4ff-08f5b35cdfb5" />
 
-    DL[Central Data Layer<br/>Analytics Engine]
-
-    DL --> PS[PonziStory<br/>(Fraud Detection)]
-    PS --> CM[Cycler Matrix<br/>(Mobile Fintech)]
                
 📊 Key Results (Executive Summary)
 Metric	Result
