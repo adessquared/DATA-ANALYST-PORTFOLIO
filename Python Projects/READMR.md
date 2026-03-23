@@ -25,12 +25,12 @@ Each project acts as a node in the digital economy infrastructure.
 🏗️ Architecture Overview
 
 flowchart LR
-
-    <img width="1772" height="630" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/ea805d33-3f0f-4c0e-b4ff-08f5b35cdfb5" />
+![image alt](https://github.com/user-attachments/assets/ea805d33-3f0f-4c0e-b4ff-08f5b35cdfb5)
+   
 
                
-📊 Key Results (Executive Summary)
-Metric	Result
+📊 Key Results (Executive Summary)Metric	Result
+
 💰 Revenue Growth	+35%
 📈 ROAS Improvement	+22%
 ⏱️ Time Saved	8 hours/day
