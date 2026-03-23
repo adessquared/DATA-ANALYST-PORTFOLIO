@@ -1,12 +1,85 @@
 # 💫 About Me:
-Ibrahim A. Adeosun  
-Analytics Engineer & AI Solutions Architect | Business Intelligence | Data Visualization | AI & Automation  
+# 👋 Hi, I'm Ibrahim A. Adeosun  
 
-Transforming raw data into actionable insights.  
+**Data Analyst | Business Intelligence | Data Visualization | AI & Automation**  
 
-I am a Data Analyst skilled in transforming complex data into strategic business insights. Proficient in Python, R, SQL, Excel, Power BI, and Tableau, I specialize in the full analytics lifecycle—building interactive dashboards, merging disparate datasets, and performing statistical analysis to identify key opportunities.  I combine technical execution with critical thinking to deliver clear, actionable insights that drive informed decision-making.  
+Transforming raw data into actionable insights that drive business decisions.  
 
-I also bring a human-centered perspective from my background in caregiving, strengthening my ability to work with real-world data and uncover meaningful insights.
+## 📊 About Me  
+
+I am a results-driven Data Analyst with expertise in transforming complex datasets into meaningful insights. I specialize in the full data analytics lifecycle—data cleaning, analysis, visualization, and storytelling.  
+
+With proficiency in **Python, R, SQL, Excel, Power BI, and Tableau**, I build data-driven solutions that help businesses optimize performance and make informed decisions.  
+
+I also bring a **human-centered perspective** from my background experience, enabling me to work effectively with real-world data and uncover impactful insights.  
+
+---
+
+## 🚀 Portfolio Highlights  
+
+✔ 15+ Data Analytics Projects Completed  
+✔ End-to-End Analytics Solutions (Data Cleaning → Visualization → Insights)  
+✔ Interactive Dashboards & Business Intelligence Reports  
+✔ Data Storytelling & Decision Support  
+
+---
+
+## 🧰 Tools & Technologies  
+
+- **Languages:** Python, R, SQL  
+- **Data Analysis:** Excel, Pandas, NumPy  
+- **Visualization:** Power BI, Tableau, Matplotlib, Seaborn  
+- **Databases:** MySQL, PostgreSQL  
+- **Other Tools:** Git, GitHub, Jupyter Notebook  
+
+---
+
+## 📂 Featured Projects  
+
+### 📌 1. Sales Performance Analysis Dashboard  
+**Tools:** Excel | Power BI | SQL  
+
+- Analyzed sales data to identify top-performing products and regions  
+- Built an interactive dashboard to track KPIs and trends  
+- Delivered insights to improve revenue optimization strategies  
+
+---
+
+### 📌 2. Customer Segmentation Analysis  
+**Tools:** Python | Pandas | Tableau  
+
+- Performed customer segmentation using behavioral data  
+- Identified high-value customer groups  
+- Provided data-driven recommendations for targeted marketing  
+
+---
+
+### 📌 3. Data Cleaning & Transformation Project  
+**Tools:** Python | Excel  
+
+- Cleaned and transformed raw datasets for analysis  
+- Handled missing values, duplicates, and inconsistencies  
+- Prepared structured datasets for business intelligence use  
+
+---
+
+## 📈 What I Do Best  
+
+- Transform messy data into structured insights  
+- Build dashboards that support decision-making  
+- Analyze trends to uncover opportunities  
+- Communicate findings in a clear, business-focused way  
+
+---
+
+## 📫 Let's Connect  
+
+- GitHub: https://github.com/adessquared/DATA-ANALYST-PORTFOLIO  
+ 
+
+---
+
+⭐ *If you find my work valuable, feel free to star this repository!*
 
 ## 🌐 Socials:
 [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/adessquared) [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/iadeosun) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/ibrahim-adegoke-adeosun-04208617b/) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/adessquared) [![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?logo=TikTok&logoColor=white)](https://www.tiktok.com/@iaadata?_r=1&_t=ZS-94qkH7GmGWe) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/AdAdegoke) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@iaadatatop) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:adessquared@gmail.com) 
