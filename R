@@ -173,218 +173,122 @@ print(key_questions)
 
 ---
 
-## 4. Exploratory Data Analysis
+# --- Professional Theme & Color Palette ---
+brand_colors <- c("Basic" = "#64B5F6", "Pro" = "#1976D2", "Elite" = "#0D47A1", 
+                 "verified" = "#2E7D32", "pending" = "#FFA000", "rejected" = "#C62828")
 
-### 4.1 User Demographics and Security Adoption
-
-```r
-# KYC Status Distribution
-kyc_summary <- users %>%
-  group_by(kyc_status) %>%
-  summarise(
-    count      = n(),
-    percentage = n() / nrow(users) * 100
+portfolio_theme <- theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", size = 14, color = "#263238"),
+    panel.grid.minor = element_blank(),
+    legend.position = "top",
+    axis.title = element_text(color = "#546E7A")
   )
 
-print(kyc_summary)
+# 4.2 Investment Distribution (Interactive Violin + Boxplot)
+p1 <- ggplot(stakes, aes(x = plan_name, y = amount, fill = plan_name)) +
+  geom_violin(alpha = 0.3) +
+  geom_boxplot(width = 0.2, color = "#263238", outlier.colour = "red") +
+  scale_fill_manual(values = brand_colors) +
+  labs(title = "Investment Distribution by Tier", x = "Plan Name", y = "Amount ($)") +
+  portfolio_theme
 
-# 2FA Adoption Rate
-two_fa_summary <- users %>%
-  summarise(
-    total_users    = n(),
-    two_fa_enabled = sum(two_fa_enabled),
-    adoption_rate  = mean(two_fa_enabled) * 100
-  )
+ggplotly(p1)
 
-print(two_fa_summary)
-```
+# 4.4 Task Status Funnel (Reordered & Gradient)
+status_colors <- c("completed" = "#2E7D32", "verified" = "#43A047", "submitted" = "#0288D1", 
+                   "pending" = "#FB8C00", "failed" = "#E53935", "expired" = "#757575")
 
-**Expected output (simulated):**
-
-| kyc_status | count | percentage |
-|---|---|---|
-| verified | ~3,500 | 70.0% |
-| pending | ~1,000 | 20.0% |
-| rejected | ~500 | 10.0% |
-
-| Metric | Value |
-|---|---|
-| Total users | 5,000 |
-| 2FA enabled | ~2,250 |
-| Adoption rate | ~45.0% |
-
----
-
-### 4.2 Investment Analysis — Total Value Locked
-
-```r
-# Total Value Locked (TVL) by Plan
-tvl_by_plan <- stakes %>%
-  group_by(plan_name) %>%
-  summarise(
-    total_invested = sum(amount),
-    avg_investment = mean(amount),
-    num_stakes     = n()
-  )
-
-print(tvl_by_plan)
-
-# Visualization: Investment Distribution by Plan
-ggplot(stakes, aes(x = plan_name, y = amount, fill = plan_name)) +
-  geom_boxplot() +
-  labs(
-    title = "Investment Amount Distribution by Plan",
-    x     = "Plan Type",
-    y     = "Investment Amount ($)"
-  ) +
-  theme_minimal()
-```
-
-**Plan tier comparison:**
-
-| Plan | Daily ROI Rate | Compounding | Expected TVL share |
-|---|---|---|---|
-| Basic | 1.2% | 30% of users | ~33% |
-| Pro | 1.8% | 30% of users | ~33% |
-| Elite | 2.4% | 30% of users | ~33% |
-
----
-
-### 4.3 ROI Analysis
-
-```r
-# ROI Credited vs. Forfeited
-roi_summary <- roi_transactions %>%
-  group_by(credited) %>%
-  summarise(
-    total_amount      = sum(amount),
-    transaction_count = n()
-  ) %>%
-  mutate(percentage = transaction_count / nrow(roi_transactions) * 100)
-
-print(roi_summary)
-
-# Average Daily ROI by Plan
-roi_by_plan <- roi_transactions %>%
-  left_join(stakes %>% select(stake_id, plan_name), by = "stake_id") %>%
-  group_by(plan_name) %>%
-  summarise(avg_daily_roi = mean(amount))
-
-print(roi_by_plan)
-```
-
-**Key insight:** With 92% of ROI transactions credited and 8% forfeited, the platform retains approximately **$X in forfeited ROI** from non-compliant users — a direct liquidity buffer that sustains TVL health.
-
----
-
-### 4.4 Task Compliance Analysis
-
-```r
-# Task Completion Rate by Assignment Window
-task_completion <- user_tasks %>%
-  group_by(assigned_window) %>%
-  summarise(
-    total_assigned  = n(),
-    completed       = sum(status %in% c("completed", "verified")),
-    completion_rate = completed / total_assigned * 100
-  )
-
-print(task_completion)
-
-# Task Status Funnel Visualization
-task_funnel <- user_tasks %>%
+p2 <- user_tasks %>%
   count(status) %>%
-  mutate(percentage = n / sum(n) * 100)
+  ggplot(aes(x = reorder(status, n), y = n, fill = status)) +
+  geom_col(width = 0.8) +
+  coord_flip() +
+  scale_fill_manual(values = status_colors) +
+  labs(title = "Task Compliance Funnel", x = "Status", y = "Total Assignments") +
+  portfolio_theme +
+  theme(legend.position = "none")
 
-ggplot(task_funnel, aes(x = reorder(status, -n), y = n, fill = status)) +
-  geom_col() +
-  labs(
-    title = "Task Status Funnel",
-    x     = "Status",
-    y     = "Number of Tasks"
-  ) +
-  theme_minimal()
-```
-
-**What to look for:** Windows with low completion rates (expected: the `00:00` overnight window) identify friction points where a targeted push reminder could recover 15–20% of lapsed completions.
-
----
+ggplotly(p2)
 
 ## 5. Advanced Analysis — Owner Gating Impact
 
 Owner gating controls whether a task creator can receive their own assigned task. This analysis measures whether gating affects completion fairness across time windows.
 
-```r
-# Impact of owner gating on completion rates by window
-owner_gating_analysis <- user_tasks %>%
-  left_join(daily_tasks %>% select(task_id, owner_gating_active),
-            by = "task_id") %>%
+# Owner Gating Completion Comparison (Professional Faceting)
+p3 <- user_tasks %>%
+  left_join(daily_tasks %>% select(task_id, owner_gating_active), by = "task_id") %>%
   group_by(owner_gating_active, assigned_window) %>%
-  summarise(
-    assignments     = n(),
-    completion_rate = mean(status %in% c("completed", "verified")) * 100
-  )
+  summarise(completion_rate = mean(status %in% c("completed", "verified")), .groups = "drop") %>%
+  ggplot(aes(x = assigned_window, y = completion_rate, fill = owner_gating_active)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("#CFD8DC", "#1E88E5"), labels = c("Gating Off", "Gating On")) +
+  labs(title = "Efficiency Impact: Owner Gating vs. Window Completion",
+       x = "Time Window", y = "Completion Rate (%)", fill = "Logic State") +
+  portfolio_theme
 
-print(owner_gating_analysis)
-
-# Visualization: Owner Gating Completion Comparison
-ggplot(owner_gating_analysis,
-       aes(x = assigned_window, y = completion_rate,
-           fill = owner_gating_active)) +
-  geom_col(position = "dodge") +
-  labs(
-    title = "Task Completion Rate by Window — Owner Gating Effect",
-    x     = "Assignment Window",
-    y     = "Completion Rate (%)",
-    fill  = "Owner Gating Active"
-  ) +
-  theme_minimal()
-```
-
-**Why it matters:** Owner gating directly influences Gini coefficient improvement in task distribution. Higher completion rates on gated tasks confirm that fair distribution — preventing self-assignment — drives ecosystem-wide engagement rather than concentrating rewards with power users.
-
+ggplotly(p3)
 ---
 
 ## 6. Cohort Analysis — User Retention
 
-```r
-# Monthly signup cohorts
-user_cohorts <- users %>%
-  mutate(cohort_month = floor_date(created_at, "month")) %>%
-  group_by(cohort_month) %>%
-  summarise(new_users = n())
-
-# Retention by months since acquisition (0–5 months)
-cohort_retention <- user_tasks %>%
+# Calculate Retention Heatmap Data
+retention_data <- user_tasks %>%
   left_join(users %>% select(user_id, created_at), by = "user_id") %>%
   mutate(
-    cohort_month             = floor_date(created_at, "month"),
-    activity_month           = floor_date(assigned_date, "month"),
-    months_since_acquisition = interval(created_at, assigned_date) %/% months(1)
+    cohort = floor_date(created_at, "month"),
+    age = interval(cohort, assigned_date) %/% months(1)
   ) %>%
-  filter(months_since_acquisition >= 0 & months_since_acquisition <= 5) %>%
-  group_by(cohort_month, months_since_acquisition) %>%
-  summarise(active_users = n_distinct(user_id), .groups = "drop")
+  filter(age >= 0 & age <= 6) %>%
+  group_by(cohort, age) %>%
+  summarise(active_users = n_distinct(user_id), .groups = "drop") %>%
+  group_by(cohort) %>%
+  mutate(retention_pct = active_users / first(active_users))
 
-# Pivot to standard cohort table format
-cohort_table <- cohort_retention %>%
-  pivot_wider(
-    names_from  = months_since_acquisition,
-    values_from = active_users,
-    names_prefix = "month_"
-  )
+# Plot Retention Heatmap
+p4 <- ggplot(retention_data, aes(x = age, y = factor(cohort), fill = retention_pct)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient(low = "#E3F2FD", high = "#0D47A1", labels = scales::percent) +
+  geom_text(aes(label = scales::percent(retention_pct, accuracy = 1)), size = 3) +
+  labs(title = "User Retention Heatmap (Monthly Cohorts)",
+       x = "Months Since Signup", y = "User Cohort", fill = "Retention %") +
+  portfolio_theme +
+  theme(panel.grid.major = element_blank())
 
-print(cohort_table)
-```
-
-**Reading the cohort table:** Each row is a signup month. Each `month_N` column shows how many users from that cohort were still active N months after joining. A sharp drop from `month_0` to `month_1` is the primary churn signal — the target for automated win-back campaigns.
-
-**Expected pattern on this platform:** Users who complete tasks in `month_0` and `month_1` are the cohort most likely to persist (the 2.3x ROI correlation). Early task-completion activation is therefore the single highest-leverage retention intervention.
-
+p4
 ---
 
 ## 7. Wallet Flow Analysis — Sankey Preparation
+library(plotly)
 
+# Prepare nodes
+nodes <- data.frame(name = unique(c(sankey_data$source, sankey_data$target)))
+sankey_data$IDsource <- match(sankey_data$source, nodes$name) - 1
+sankey_data$IDtarget <- match(sankey_data$target, nodes$name) - 1
+
+# Professional Sankey Plot
+fig <- plot_ly(
+    type = "sankey",
+    orientation = "h",
+    node = list(
+      label = nodes$name,
+      color = "#1A237E",
+      pad = 15,
+      thickness = 20,
+      line = list(color = "black", width = 0.5)
+    ),
+    link = list(
+      source = sankey_data$IDsource,
+      target = sankey_data$IDtarget,
+      value =  sankey_data$flow_value,
+      color = "rgba(21, 101, 192, 0.2)" # Semi-transparent blue links
+    )
+  ) %>% 
+  layout(title = "Ecosystem Wallet Liquidity Flow", font = list(size = 10))
+
+fig
+  
 ```r
 # Summary wallet flow by type and status
 wallet_flow <- wallet_transactions %>%
@@ -436,6 +340,20 @@ This structure feeds directly into Tableau, Power BI, or a `networkD3::sankeyNet
 
 ## 8. KPI Dashboard Summary
 
+  # Create a high-impact summary table
+kpi_dashboard <- kpi_summary %>%
+  mutate(
+    Status = case_when(
+      str_detect(value, "%") & as.numeric(gsub("%", "", value)) > 80 ~ "🟢 Healthy",
+      str_detect(value, "%") & as.numeric(gsub("%", "", value)) > 50 ~ "🟡 Monitoring",
+      TRUE ~ "🔵 Active"
+    )
+  )
+
+# Use knitr for a clean GitHub-ready markdown table
+knitr::kable(kpi_dashboard, caption = "Investment Matrix Executive Dashboard")
+
+  
 ```r
 kpi_summary <- tibble(
   metric = c(
