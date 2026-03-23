@@ -38,83 +38,78 @@ flowchart LR
 🔁 User ROI Boost	2.3x increase
 ⚖️ Fairness (Gini)	0.45 → 0.32
 🔍 Project Breakdown (Case Study Format)
+
 1. 📢 Social Agent — Marketing Intelligence
 
 Problem:
 Ad spend was inefficient due to poor attribution.
 
 Solution:
-
 Built multi-touch attribution model
 Unified Ads + Email + Social datasets
 Identified high-engagement channels (Threads)
 
 Impact:
-
 ✅ 22% ROAS increase
 ✅ 18% conversion boost
 ✅ Reduced CAC significantly
+
 2. 💸 ViralGrowth — Fintech Distribution Engine
 
 Problem:
 Unfair reward distribution causing user churn.
 
 Solution:
-
 Built task scheduling engine (6-hour windows)
 Implemented Gini-based fairness optimization
 Integrated crypto payments
 
 Impact:
-
 ✅ 35% revenue growth
 ✅ Fairness improved (0.45 → 0.32)
 ✅ Higher user retention
+
 3. 🏥 LabProject — AI + Compliance System
 
 Problem:
 Manual interpretation slowing clinical workflows.
 
 Solution:
-
 Designed multi-provider AI engine
 Implemented cost governance + failover
 Built AI interpretation pipeline
 
 Impact:
-
 ✅ 8 hours saved daily
 ✅ 15% API cost reduction
 ✅ 40% increase in patient engagement
+
 4. 🔐 PonziStory — Fraud Detection System
 
 Problem:
 High risk of fraudulent withdrawals.
 
 Solution:
-
 Built wallet analytics engine
 Implemented behavioral anomaly detection
 Enforced 2FA + secure admin controls
 
 Impact:
-
 ✅ 40% fraud reduction
 ✅ 60% faster audits
 ✅ 100% transaction traceability
+
 5. 📱 Cycler Matrix — Mobile Fintech Growth
 
 Problem:
 Low retention and mobile friction.
 
 Solution:
-
 Built PWA + APK wrapper
 Integrated Firebase push notifications
 Designed daily task engagement model
 
 Impact:
-
 ✅ 2.3x user ROI
 ✅ 78% task completion rate
 ✅ Zero app store friction
@@ -130,12 +125,15 @@ AI is not just a feature — it is infrastructure
 Analytics is not reporting — it is decision-making
 
 🖥️ Dashboard: “Digital Economy Intelligence Hub”
+
 🔹 1. KPI Overview (Top Cards)
 [ Revenue Growth ]      35%
 [ ROAS Lift ]           22%
 [ Fraud Reduction ]     40%
 [ Time Saved ]          8h/day
 [ User ROI ]            2.3x
+
+
 🔹 2. Project Performance Comparison (Bar Chart)
 Project	Impact Score
 ViralGrowth	██████████
@@ -143,11 +141,13 @@ Social Agent	████████
 LabProject	███████
 PonziStory	███████
 Cycler	██████
+
 🔹 3. Revenue & Growth Trends
 Line chart:
 X-axis: Time (months)
 Y-axis: Revenue
 Highlight: +35% growth (ViralGrowth)
+
 🔹 4. Fraud Detection Analytics
 Pie Chart:
 Fraud prevented: 40%
@@ -155,6 +155,8 @@ Normal transactions: 60%
 Table:
 Suspicious patterns
 Wallet anomalies
+
+
 🔹 5. AI Usage & Cost (LabProject)
 Metrics:
 Total AI calls
@@ -162,6 +164,8 @@ Cost saved: 15%
 Avg latency
 Chart:
 Provider usage distribution
+
+
 🔹 6. User Behavior & Retention
 
 Funnel:
@@ -170,12 +174,16 @@ Signup → Active → Task Completion → ROI Growth
 Highlight:
 78% completion
 2.3x ROI users
+
+
 🔹 7. Fairness Engine (Gini Coefficient)
 
 Before vs After:
 
 Before: 0.45  █████████
 After : 0.32  ██████
+
+
 🔹 8. Engagement Intelligence (Social Agent)
 Channel comparison:
 Threads
