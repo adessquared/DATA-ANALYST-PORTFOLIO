@@ -84,7 +84,7 @@ Impact:
 ✅ 15% API cost reduction
 ✅ 40% increase in patient engagement
 
-4. 🔐 PonziStory — Fraud Detection System
+4. 🔐 TangibleBit.store — Fraud Detection System
 
 Problem:
 High risk of fraudulent withdrawals.
@@ -230,7 +230,7 @@ This portfolio sits at the intersection of **profitability, performance, and pla
 | Social Agent (Beepost) | Omnichannel Marketing Analytics | 22% ROAS lift |
 | ViralGrowth.cloud | Task Distribution & Fintech | 35% revenue growth in 90 days |
 | LabProject | Medical Lab & AI Governance | 8h/day operational time gained |
-| PonziStory (Binary Matrix) | Fintech & Fraud Detection | 40% fraudulent withdrawal reduction |
+| TangibleBit.store (Binary Matrix) | Fintech & Fraud Detection | 40% fraudulent withdrawal reduction |
 | Investment Hybrid Cycler | Fintech Mobile Delivery | 2.3x ROI for daily-task completers |
 
 ---
@@ -371,7 +371,7 @@ for project in portfolio_projects:
 
 ---
 
-### 4. PonziStory (Binary Matrix) — Capital Protection and Risk Mitigation
+### 4. TangibleBit.store (Binary Matrix) — Capital Protection and Risk Mitigation
 
 **Fraud Loss Prevention** — Mitigated **40% of potential fraudulent withdrawals** through real-time wallet flow analytics, anomaly detection on movement patterns, and 2FA governance on all withdrawal triggers.
 
@@ -403,7 +403,7 @@ The Social Agent project targets the **73.6% higher engagement advantage** that 
 
 ### Financial Sovereignty
 
-The fintech projects (PonziStory, Cycler) align with the direct-to-fan renaissance, where creators and investors are moving toward decentralised control — keeping 80–100% of revenue through automated crypto payment rails rather than traditional banking intermediaries.
+The fintech projects (TangibleBit.store, Cycler) align with the direct-to-fan renaissance, where creators and investors are moving toward decentralised control — keeping 80–100% of revenue through automated crypto payment rails rather than traditional banking intermediaries.
 
 ### The $848.13 Billion Creator Economy
 
@@ -420,7 +420,7 @@ Across the five projects, the portfolio consistently delivers across four dimens
 | **Revenue Growth** | 35% increase in platform earnings | ViralGrowth.cloud |
 | **ROAS Efficiency** | 22% lift in return on ad spend | Social Agent |
 | **Operational Savings** | 15% API cost reduction + 8h/day gained | LabProject |
-| **Risk Mitigation** | 40% fraudulent withdrawal reduction | PonziStory |
+| **Risk Mitigation** | 40% fraudulent withdrawal reduction | TangibleBit.store |
 | **Retention Economics** | 2.3x ROI for engaged users | Cycler Matrix |
 | **Fairness Engineering** | Gini coefficient 0.45 → 0.32 | ViralGrowth.cloud |
 
