@@ -29,7 +29,8 @@ flowchart LR
 ![image alt](https://github.com/user-attachments/assets/ea805d33-3f0f-4c0e-b4ff-08f5b35cdfb5)
    
 
-               
+         <img width="1772" height="630" alt="9529695864-ea805d33-3f0f-4c0e-b4ff-08f5b35cdfb5" src="https://github.com/user-attachments/assets/d8aa9602-a9f3-4269-bb9c-f11a86cebd1a" />
+      
 📊 Key Results (Executive Summary)Metric	Result
 
 💰 Revenue Growth	+35%
