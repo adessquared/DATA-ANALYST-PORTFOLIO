@@ -141,7 +141,7 @@ Project                Impact Score
 ViralGrowth        🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
 Social Agent       🟦🟦🟦🟦🟦🟦🟦🟦
 LabProject         🟨🟨🟨🟨🟨🟨🟨
-PonziStory         🟥🟥🟥🟥🟥🟥🟥
+TangibleBit         🟥🟥🟥🟥🟥🟥🟥
 Cycler             🟪🟪🟪🟪🟪🟪
 
 
