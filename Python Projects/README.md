@@ -462,9 +462,11 @@ My work sits at the intersection of **profitability and performance**. By engine
   <img src="https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0006.jpg" alt="Page 6" width="90%" />
 </p>
 
-<p align="center">
-  <img src="https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0007.jpg" alt="Page 7" width="90%" />
-</p>
+
+![Architecting_the_Digital_Economy_page-0007b](https://github.com/user-attachments/assets/c322cc88-4313-4b95-b64f-1da7cc525ff1)
+
+
+
 
 <p align="center">
   <img src="https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0008.jpg" alt="Page 8" width="90%" />
@@ -474,9 +476,8 @@ My work sits at the intersection of **profitability and performance**. By engine
   <img src="https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0009.jpg" alt="Page 9" width="90%" />
 </p>
 
-<p align="center">
-  <img src="https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0010.jpg" alt="Page 10" width="90%" />
-</p>
+![Architecting_the_Digital_Economy_page-0010b](https://github.com/user-attachments/assets/f7adf53b-8ecf-4fec-9baa-e6ffbe652c2d)
+
 
 <p align="center">
   <img src="https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0011.jpg" alt="Page 11" width="90%" />
