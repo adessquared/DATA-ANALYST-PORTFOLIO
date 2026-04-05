@@ -22,8 +22,11 @@ I appreciate your interest in my Excel portfolio. You can access it via the link
 ![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0004.jpg)
 ![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0005.jpg)
 ![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0006.jpg)
-![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0007.jpg)
+
+![Architecting_the_Digital_Economy_page-0007b](https://github.com/user-attachments/assets/a49cef19-0875-4d8c-8bf9-5e605c07309f)
+
 ![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0008.jpg)
 ![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0009.jpg)
-![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0010.jpg)
+![Architecting_the_Digital_Economy_page-0010b](https://github.com/user-attachments/assets/eed3ffe0-cdf2-4c3a-8f28-036afbf0e7b6)
+
 ![image alt](https://github.com/adessquared/DATA-ANALYST-PORTFOLIO/blob/0359d3e6ca660d234c94c8164cc458f6b0c46ac0/Data%20Visualization/Architecting_the_Digital_Economy_page-0011.jpg)
