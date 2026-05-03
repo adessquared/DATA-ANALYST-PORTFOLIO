@@ -1,3 +1,17 @@
+![image1](<img width="2752" height="1536" alt="1 chart_hours" src="https://github.com/user-attachments/assets/86ca181c-c64c-4eec-989a-77d751d434a6" />)
+![image1](<img width="2550" height="3300" alt="1 Fintect Risk Analyst Case Study Report by Ibrahim Adeosun-images-0" src="https://github.com/user-attachments/assets/060865af-7caa-479f-8038-550d14782dc2" />)
+
+![image1](<img width="2550" height="3300" alt="2 Fintect Risk Analyst Case Study Report by Ibrahim Adeosun-images-1" src="https://github.com/user-attachments/assets/78f02a15-7cf3-4998-9a25-6ffc55a8c763" />).
+
+![image1](<img width="2550" height="3300" alt="3 Fintect Risk Analyst Case Study Report by Ibrahim Adeosun-images-2" src="https://github.com/user-attachments/assets/89007a33-a35a-470c-8d6c-cd8f4f6a8b2f" />)
+
+
+![image1](<img width="2550" height="3300" alt="4 Fintect Risk Analyst Case Study Report by Ibrahim Adeosun-images-3" src="https://github.com/user-attachments/assets/cf9cb170-8315-4863-8759-083813e0bc17" />)
+
+
+
+
+
 Option 1: Professional Overview (Best for GitHub Profile or Portfolio Homepage)
 
 SQL for Data Analytics
