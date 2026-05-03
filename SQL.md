@@ -1,4 +1,5 @@
-<img width="2752" height="1536" alt="1 chart_hours" src="https://github.com/user-attachments/assets/86ca181c-c64c-4eec-989a-77d751d434a6" />
+<img width="2758" height="1489" alt="1 chart_hours" src="https://github.com/user-attachments/assets/eaae7b32-c26a-4723-b354-a73b9cbfa97b" />
+
 <img width="2550" height="3300" alt="1 Fintect Risk Analyst Case Study Report by Ibrahim Adeosun-images-0" src="https://github.com/user-attachments/assets/060865af-7caa-479f-8038-550d14782dc2" />
 
 (<img width="2550" height="3300" alt="2 Fintect Risk Analyst Case Study Report by Ibrahim Adeosun-images-1" src="https://github.com/user-attachments/assets/78f02a15-7cf3-4998-9a25-6ffc55a8c763" />
